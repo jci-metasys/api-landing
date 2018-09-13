@@ -1,0 +1,11 @@
+<div class="dropdown pull-right">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    API Versions
+    <span class="caret"></span>
+  </a>
+  <ul id="version-dropdown" class="dropdown-menu dropdown-menu-right">
+    {% for version in site.data.default.api %}
+    <li><a href="{{ version.url | prepend: site.baseurl }}">{{ version.name }}</a></li>
+    {% endfor %}
+  </ul>
+</div>

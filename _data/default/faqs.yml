@@ -1,0 +1,30 @@
+- section: 'REST API'
+  questions:
+    - title: 'Are there any usage examples?'
+      answer: >
+        We have created a few examples as a means to show some use cases of how the API might be used. One of the examples
+        is a [data extraction utility](!SITE_URL!examples/data-extractor) which aggregates data from within <i class="metasys"></i> and stores it locally for external analysis.
+      is_new: true
+      was_updated: false
+    - title: 'How do I get an **object identifier**?'
+      answer: >
+        All of the API endpoints accept GUIDs as identifiers for retrieving information for that object. These identifiers may be obtained by querying for a collection
+        of the requested objects and in turn, the id property on each item will be what is used for subsequent requests in relation to that object.
+      is_new: true
+      was_updated: false
+    - title: 'Why do I get an **invalid_grant** error when trying to authenticate?'
+      answer: >
+        This error is returned when the specified login credentials are invalid. Ensure the correct username, password, client_id, and client_secret are specified. If you
+        need help for determining what the client_id or client_secret are, you may reference the [Authentication section](!SITE_URL!api/alderaan/#/reference/authentication/token-management/login-and-session-extension){:target="_blank"} of the API docs.
+      is_new: true
+      was_updated: false
+
+- section: 'Documentation'
+  questions:
+    - title: 'How do I contribute to this documentation?'
+      answer: >
+        The landing page is hosted via GitHub pages with the source located in the [<i class="metasys"></i> Server API Landing repo](https://github.com/johnsoncontrols/metasys-server-api-landing){:target="_blank"}
+        whereas the actual API documentation is housed in the [<i class="metasys"></i> Server API Docs repo](https://github.com/johnsoncontrols/metasys-server-api-docs){:target="_blank"}. The latter uses Apiary to handle
+        the rendering and publishing of the documentation.
+      is_new: true
+      was_updated: false

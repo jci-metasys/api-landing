@@ -1,0 +1,15 @@
+<div class="branding">
+    <h1 class="logo">
+        <a href="{{ site.baseurl | default: page.url }}">
+            {% if general.header.logo %}
+                <img src="{{ general.header.logo | prepend: site.baseurl }}" class="{% unless page.layout == 'landing' %}logo-small{% endunless %}">
+            {% else %}
+                {% if general.header.icon %}
+                    <span aria-hidden="true" class="icon {{ general.header.icon }}"></span>
+                {% endif %}
+                <span class="text-highlight">{{ general.header.title }}</span>
+                <span class="text">{{ general.header.subtitle }}</span>
+            {% endif %}
+        </a>
+    </h1>
+</div>

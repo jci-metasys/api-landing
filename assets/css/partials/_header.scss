@@ -1,0 +1,32 @@
+.header-xs {
+  .container {
+    width: 100%;
+    padding-left: 30px;
+    padding-right: 40px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.header {
+  .dropdown {
+    margin-top: 15px;
+
+    .dropdown-toggle {
+      background-color: Transparent;
+      border: none;
+      color: #fff;
+      text-decoration: none;
+      font-size: 13pt;
+
+      &:hover {
+        color: rgba(255,255,255,.7);
+      }
+    }
+  }
+}
+
+.header-img {
+  background-repeat: no-repeat;
+  background-size: cover;
+}

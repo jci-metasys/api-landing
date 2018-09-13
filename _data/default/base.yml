@@ -1,0 +1,15 @@
+author: "Johnson Controls PLC"
+title: '<i class="metasys"></i> API Documentation'
+meta:
+  - name: "keywords"
+    lang: "en"
+    content: >
+      Web, WWW, technology, course, Romania, Iasi, Computer Science, university,
+      academic, information, education, school, project, lang programming,
+      document, software, application, student, grade
+header:
+  url: '/'
+  logo: 'assets/images/logo.png'
+  background_image: 'assets/images/Parallelograms_Metasys_Blue.png'
+  tagline: >
+    <i class="metasys-r"></i> API Documentation

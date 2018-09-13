@@ -1,0 +1,55 @@
+- title: "Echipa noastră"
+  description: >
+    Toate materialele disponibile în cadrul acestui site au fost
+    pregătite cu drag de către colegii noștrii.
+  members:
+    - name: "Alexandru Coman"
+      email: "alexandru.coman@tss-yonder.com"
+      social:
+        - title: "Pagina de GitHub"
+          icon: "fab fa-github"
+          url: "https://github.com/alexcoman/"
+        - title: "Profilul tehnic"
+          icon: "fab fa-linkedin"
+          url: "https://www.linkedin.com/in/comanalex/"
+        - title: "Situl personal"
+          icon: "fas fa-anchor"
+          url: "https://alexcoman.com/"
+
+    - name: "Andrei Sahaidac"
+      email: "andrei.sahaidac@tss-yonder.com"
+      social:
+        - title: "Pagina de GitHub"
+          icon: "fab fa-github"
+          url: "https://github.com/andreidotnet"
+        - title: "Profilul tehnic"
+          icon: "fab fa-linkedin"
+          url: "https://www.linkedin.com/in/andrei-sahaidac-2a098490/"
+
+    - name: "Dragoș Dimitriu"
+      email: "dragos.dimitriu@tss-yonder.com"
+      social:
+        - title: "Pagina de GitHub"
+          icon: "fab fa-github"
+          url: "https://github.com/dragos0"
+
+    - name: "Florin Asăvoaie"
+      avatar: "https://avatars0.githubusercontent.com/u/3115473"
+      email: "florin.asavoaie@tss-yonder.com"
+      social:
+        - title: "Pagina de GitHub"
+          icon: "fab fa-github"
+          url: "https://github.com/FlorinAsavoaie"
+        - title: "Profilul tehnic"
+          icon: "fab fa-linkedin"
+          url: "https://www.linkedin.com/in/florin-asavoaie/"
+    
+    - name: "Gabriel Paiu"
+      email: "gabriel.paiu@tss-yonder.com"
+      social:
+        - title: "Pagina de GitHub"
+          icon: "fab fa-github"
+          url: "https://github.com/gpaiu"
+        - title: "Profilul tehnic"
+          icon: "fab fa-linkedin"
+          url: "https://www.linkedin.com/in/gabrielpaiu/"

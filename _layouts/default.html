@@ -1,0 +1,28 @@
+---
+layout: compress
+---
+{% if page.color %}{% capture body_class %}class="body-{{ page.color }}"{% endcapture %}{% endif %}
+
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="{{ site.lang }}" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="{{ site.lang }}" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="{{ site.lang }}"> <!--<![endif]-->
+    {% include _theme/head.html %}
+    <body {{ body_class }}>
+        <div class="page-wrapper">
+            {% include _theme/header.html %}
+            {{ content }}
+        </div>
+        {% unless page.layout_small %}{% include _theme/footer.html %}{% endunless %}
+        {% include _theme/js.html %}
+
+        <script>
+            var baseurl = "{{ site.baseurl }}";
+            var tc_url = 'https://preteamcity.cg.na.jci.com';
+            var enable_prerelease = {{ site.pre_release }};
+        </script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+        <script src="{{ "assets/js/pre-releases.js" | prepend: site.baseurl }}"></script>
+    </body>
+</html>

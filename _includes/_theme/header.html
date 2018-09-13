@@ -1,0 +1,20 @@
+{% include _utils/common %}
+<header id="header" class="header {% if page.layout_small %}header-xs{% endif %} {% if is_landing %}text-center no-border{% endif %}" {% if general.header.background_image and is_landing %}
+        style="background: url({{ general.header.background_image | prepend: site.baseurl }})" {% endif %}>
+  <div class="container">
+    {% if is_landing %}
+      {% include _partials/header/branding.html %}
+      {% include _partials/header/tagline.html %}
+    {% else %}
+    <div class="row">
+      <div class="col-xs-6">
+        {% include _partials/header/branding.html %}
+        {% include _partials/header/breadcrumbs.html %}
+      </div>
+      <div class="col-xs-6">
+        {% include _partials/header/version-dropdown.html %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</header>

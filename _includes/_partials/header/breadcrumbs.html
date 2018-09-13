@@ -1,0 +1,12 @@
+<ol class="breadcrumb">
+    <li><a href="{{ site.baseurl }}">Home</a></li>
+    {% for resource in resources %}
+        {% if resource == "" %}{% continue %}{% endif %}
+        {% assign resource_url =  resource_url | append: "/" | append: resource %}
+        {% if forloop.last == true %}
+            <li class="active">{{ page.title }}</li>
+        {% else %}
+            <li><a href="{{ resource_url }}">{{ resource | capitalize }}</a></li>
+        {% endif %}
+    {% endfor %}
+</ol>

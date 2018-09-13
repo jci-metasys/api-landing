@@ -1,0 +1,39 @@
+---
+---
+
+$color-primary: #40babd;
+$color-green: #8dc63f;
+$color-red: #f77b6b;
+$color-blue: #00BBE3;
+$color-orange: #F37720;
+$color-pink: #D5D537;
+$color-purple: #00B7A8;
+
+$text-color: #5F6369;
+
+@import "{{ site.theme }}";
+
+@import "partials/header";
+
+.metasys-r, .metasys {
+  &:before {
+    content: 'Metasys';
+    font-style: italic;
+  }
+}
+
+.metasys-r:after {
+  content: '\00ae';
+  vertical-align: super;
+  font-size: 80%;
+}
+
+
+#version-link-template {
+  display: none;
+}
+
+ul {
+  margin-bottom: 20px;
+}
+

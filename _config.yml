@@ -1,0 +1,50 @@
+# Site Settings
+title: 'Metasys&reg; API'
+paginate_path: content/page-:num/
+permalink: /:path/:basename:output_ext
+force-https: True
+lang: "en"
+paginate: 5
+
+url: "https://johnsoncontrols.github.io/metasys-server-api-landing"
+baseurl: "/metasys-server-api-landing/"
+remote_theme: ConnorChristie/jekyll-theme-prettydocs
+pre_release: false
+
+# Build Settings
+github:             [metadata]
+encoding:           UTF-8 
+markdown:           kramdown
+highlighter:        rouge
+kramdown:
+  input:            GFM
+  auto_ids:         true
+  footnote_nr:      1
+  entity_output:    as_char
+  toc_levels:       1..6
+  enable_coderay:   false
+  syntax_highlighter_opts:
+    disable : true
+
+# Enable minification SASS
+sass:
+  sass_dir:         assets/css
+  style:            compressed
+
+plugins:
+  - jekyll-remote-theme
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll-redirect-from
+
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+# exclude:
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
