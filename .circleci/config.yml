@@ -36,7 +36,29 @@ jobs:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
-      - run: bundle exec jekyll build
+      - run:
+          name: update config
+          command: |
+            echo "url: \"$CIRCLE_BUILD_URL$CIRCLE_NODE_INDEXartifacts$CIRCLE_ARTIFACTS\"" > _config-tc.yml
+            echo "baseurl: \"/0/site-preview/\"" >> _config-tc.yml
+
+      - run: bundle exec jekyll build --config _config.yml,_config-tc.yml
+
+      - run:
+          name: add index redirects
+          command: |
+            cat <<EOT >> _site/assets/js/main.js
+              \$('a').on('click', function(e) {
+                  const current = e.originalEvent.currentTarget.href;
+                  const urlParts = current.split('/');
+                  if (urlParts.length < 2) return;
+
+                  const last = urlParts[urlParts.length - 1];
+                  if (last === '' || last.indexOf('.') === -1) {
+                      e.originalEvent.currentTarget.href = current + (last === '' ? '' : '/') + 'index.html';
+                  }
+              });
+              EOT
 
       # collect artifacts
       - store_artifacts:
