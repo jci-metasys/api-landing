@@ -39,8 +39,8 @@ jobs:
       - run:
           name: create ci config yml
           command: |
-            'echo "url: \"$CIRCLE_BUILD_URL$CIRCLE_NODE_INDEXartifacts$CIRCLE_ARTIFACTS\"" > _config-tc.yml'
-            'echo "baseurl: \"/0/site-preview/\"" >> _config-tc.yml'
+            echo "url: \"$CIRCLE_BUILD_URL$CIRCLE_NODE_INDEXartifacts$CIRCLE_ARTIFACTS\"" > _config-tc.yml
+            echo "baseurl: \"/0/site-preview/\"" >> _config-tc.yml
 
       - run: bundle exec jekyll build --config _config.yml,_config-tc.yml
 
