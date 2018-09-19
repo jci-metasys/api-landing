@@ -3,7 +3,7 @@
 <!-- cSpell:ignore apiaryio -->
 # Metasys API Landing Page
 
-The landing page for the [Metasys Server API](https://johnsoncontrols.github.io/metasys-server-api-docs)
+The landing page for the [Metasys Server API Documentation](https://johnsoncontrols.github.io/metasys-server-api-docs)
 
 ## Contributing
 
