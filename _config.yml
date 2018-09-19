@@ -6,7 +6,7 @@ force-https: True
 lang: "en"
 paginate: 5
 
-url: "https://johnsoncontrols.github.io/metasys-server-api-landing"
+url: "https://metasys-server.github.io/api-landing"
 baseurl: "/metasys-server-api-landing/"
 remote_theme: ConnorChristie/jekyll-theme-prettydocs
 pre_release: false
