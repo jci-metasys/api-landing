@@ -1,9 +1,9 @@
-[![CircleCI](https://circleci.com/gh/johnsoncontrols/metasys-server-api-landing.svg?style=svg)](https://circleci.com/gh/johnsoncontrols/metasys-server-api-landing)
+[![CircleCI](https://circleci.com/gh/metasys-server/api-landing.svg?style=svg)](https://circleci.com/gh/metasys-server/api-landing)
 
 <!-- cSpell:ignore apiaryio -->
 # Metasys API Landing Page
 
-The landing page for the [Metasys Server API Documentation](https://johnsoncontrols.github.io/metasys-server-api-docs)
+The landing page for the [Metasys Server API Documentation](https://metasys-server.github.io/api-landing)
 
 ## Contributing
 
