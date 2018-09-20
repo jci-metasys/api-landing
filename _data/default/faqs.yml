@@ -12,12 +12,6 @@
         of the requested objects and in turn, the id property on each item will be what is used for subsequent requests in relation to that object.
       is_new: true
       was_updated: false
-    - title: 'Why do I get an **invalid_grant** error when trying to authenticate?'
-      answer: >
-        This error is returned when the specified login credentials are invalid. Ensure the correct username, password, client_id, and client_secret are specified. If you
-        need help for determining what the client_id or client_secret are, you may reference the [Authentication section](!SITE_URL!api/alderaan/#/reference/authentication/token-management/login-and-session-extension){:target="_blank"} of the API docs.
-      is_new: true
-      was_updated: false
 
 - section: 'Documentation'
   questions:
