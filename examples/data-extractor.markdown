@@ -1,5 +1,5 @@
 ---
-title: "Historical Data Extractor"
+title: "Historian"
 permalink: /examples/data-extractor/
 layout: post
 color: purple
@@ -9,7 +9,7 @@ date: 2018-09-13
 
 # Introduction
 
-The Historical Data Extractor is a series of apps that will extract historical data from <i class="metasys"></i> into a data store of your choice and in a format that can be easily read by a BI tool such as PowerBI or Tableau.
+The Historian is a series of apps that will extract historical data from <i class="metasys"></i> into a data store of your choice and in a format that can be easily read by a BI tool such as PowerBI or Tableau.
 
 There are three apps included in this source code:
 
@@ -23,7 +23,7 @@ There is also a mechanism in place for you to be able to add your own data store
 
 You may browse the source code and look at how a DotNet Core application interacts with the <i class="metasys"></i> API. The following quickstart also assumes that you have the source code locally.
 
-<a href="https://github.com/johnsoncontrols/metasys-server-data-extractor" class="btn btn-green" target="_blank" markdown="1">
+<a href="https://github.com/metasys-server/historian" class="btn btn-green" target="_blank" markdown="1">
   <i class="fas fa-code"></i> View Source Code
 </a>
 
