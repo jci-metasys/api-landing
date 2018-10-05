@@ -8,7 +8,7 @@ icon: far fa-paper-plane
 date: 2018-08-28
 ---
 
-# Overview For Updates Moreee
+# Overview
 
 The <i class="metasys"></i> API provides easy access for you to pull raw data out into your own processing and analytic mechanisms. The API mainly supports historical data fetching but also supports gathering information about the site and all of its child elements.
 
