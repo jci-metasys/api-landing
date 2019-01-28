@@ -4,7 +4,6 @@ permalink: /examples/data-extractor/
 layout: post
 color: purple
 icon: fa fa-database
-date: 2018-09-13
 ---
 
 # Introduction

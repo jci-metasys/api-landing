@@ -8,8 +8,14 @@ paginate: 5
 
 url: "https://metasys-server.github.io/api-landing"
 baseurl: "/api-landing/"
-remote_theme: ConnorChristie/jekyll-theme-prettydocs
+remote_theme: metasys-server/jekyll-theme-prettydocs
 pre_release: false
+
+# TODO: Local - Comment out before publishing
+# url: "http://127.0.0.1:8080"
+# baseurl: "/"
+# theme: jekyll-theme-prettydocs
+# pre_release: true
 
 # Build Settings
 github:             [metadata]
