@@ -9,7 +9,6 @@ meta:
       document, software, application, student, grade
 header:
   url: '/'
-  logo: 'assets/images/logo.png'
-  background_image: 'assets/images/Parallelograms_Metasys_Blue.png'
+  logo: 'assets/images/metasys_logo.png'
   tagline: >
     <i class="metasys-r"></i> API Documentation

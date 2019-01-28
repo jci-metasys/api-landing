@@ -14,6 +14,7 @@ $text-color: #5F6369;
 @import "{{ site.theme }}";
 
 @import "partials/header";
+@import "partials/cards";
 
 .metasys-r, .metasys {
   &:before {
@@ -28,7 +29,6 @@ $text-color: #5F6369;
   font-size: 80%;
 }
 
-
 #version-link-template {
   display: none;
 }
@@ -36,4 +36,3 @@ $text-color: #5F6369;
 ul {
   margin-bottom: 20px;
 }
-
