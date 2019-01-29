@@ -1,5 +1,23 @@
 .cards-section {
+  padding: 40px 0;
+
   .item-inner {
     box-shadow: 0 5px 14px 0 rgba(46,41,37,0.08);
+
+    .icon-holder {
+      min-height: 37px;
+    }
+  }
+
+  .item .intro {
+    margin-bottom: 0;
+  }
+}
+
+.cards-container {
+  margin-top: 30px;
+
+  .intro {
+    margin-bottom: 40px;
   }
 }
