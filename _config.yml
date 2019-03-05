@@ -7,7 +7,7 @@ lang: "en"
 paginate: 5
 
 url: "https://github.jci.com/pages/jchrisco/api-landing"
-baseurl: "/api-landing/"
+baseurl: "/pages/jchrisco/api-landing/"
 remote_theme: metasys-server/jekyll-theme-prettydocs
 pre_release: true
 
