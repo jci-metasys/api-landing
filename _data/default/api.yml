@@ -1,2 +1,2 @@
-- name: 'v1 - Alderaan'
-  url: 'api/alderaan'
+- name: '<i class="metasys"></i> API v1'
+  url: 'api/v1'

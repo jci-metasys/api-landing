@@ -5,7 +5,6 @@ group: quickstart
 layout: post
 color: green
 icon: far fa-paper-plane
-date: 2018-08-28
 ---
 
 # Overview
@@ -268,8 +267,8 @@ Each sample contains information about the trended attribute at a certain point 
 [JWT]: https://jwt.io/
 [ISO-8601 Encoding]: https://en.wikipedia.org/wiki/ISO_8601
 
-[Authentication Login section]: {{ 'api/alderaan/#/reference/authentication/token-management/login-and-session-extension' | prepend: site.baseurl }}
-[Enumerations section]: {{ 'api/alderaan/#/reference/enumerations/get-enum-members/get-enum-members' | prepend: site.baseurl }}
-[Objects section]: {{ 'api/alderaan/#/reference/objects/get-objects/get-objects' | prepend: site.baseurl }}
-[Object attributes section]: {{ 'api/alderaan/#/reference/samples/get-object-attributes-with-samples/get-object-attributes-with-samples' | prepend: site.baseurl }}
-[Samples section]: {{ 'api/alderaan/#/reference/samples/get-samples-for-an-object-attribute/get-samples-for-an-object-attribute' | prepend: site.baseurl }}
+[Authentication Login section]: {{ 'api/v1/#/reference/authentication/token-management/login-and-session-extension' | prepend: site.baseurl }}
+[Enumerations section]: {{ 'api/v1/#/reference/enumerations/get-enum-members/get-enum-members' | prepend: site.baseurl }}
+[Objects section]: {{ 'api/v1/#/reference/objects/get-objects/get-objects' | prepend: site.baseurl }}
+[Object attributes section]: {{ 'api/v1/#/reference/samples/get-object-attributes-with-samples/get-object-attributes-with-samples' | prepend: site.baseurl }}
+[Samples section]: {{ 'api/v1/#/reference/samples/get-samples-for-an-object-attribute/get-samples-for-an-object-attribute' | prepend: site.baseurl }}
