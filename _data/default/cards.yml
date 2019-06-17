@@ -11,7 +11,7 @@
       intro: 'Browse the documentation of our REST API'
       color: 'blue'
       icon:  'fa fa-file-alt'
-      url: 'api/v1/'
+      url: 'api/v2/'
 
     - title: 'FAQs'
       intro: 'See what problems others might be having'
