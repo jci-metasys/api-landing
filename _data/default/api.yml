@@ -1,6 +1,4 @@
 - name: '<i class="metasys"></i> API v2 (latest)'
   url: 'api/v2'
-  apib: v2
 - name: '<i class="metasys"></i> API v1'
   url: 'api/v1'
-  apib: v1
