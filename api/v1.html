@@ -9,7 +9,7 @@ layout_small: true
 <script src="https://api.apiary.io/seeds/embed.js"></script>
 <script>
   var embed = new Apiary.Embed({
-    subdomain: "metasysapialderaan",
+    apiBlueprint: {{ site.data.metasysapib.v1 | jsonify | replace: '\\/', '/' }},
     header: ".page-wrapper",
     preferences: {
       permalinks: true,
