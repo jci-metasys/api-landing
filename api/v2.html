@@ -6,17 +6,8 @@ color: blue
 layout_small: true
 ---
 
-<script src="https://api.apiary.io/seeds/embed.js"></script>
-<script>
-  var embed = new Apiary.Embed({
-    apiBlueprint: {{ site.data.metasysapib.v2 | jsonify | replace: '\\/', '/' }},
-    header: ".page-wrapper",
-    preferences: {
-      permalinks: true,
-      displayHttpMethods: true
-    }
-  });
-</script>
+<!-- This needs to be an iframe so we can keep the page header -->
+<iframe id="api-render" src="{{ "assets/api-render/v2.html" | prepend: site.baseurl }}" frameBorder="0"></iframe>
 
 <style>
   html, body {
@@ -25,11 +16,19 @@ layout_small: true
   }
 
   .page-wrapper {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
     min-height: 0;
     margin-bottom: 0;
   }
 
   .page-wrapper:after {
     height: 0;
+  }
+
+  #api-render {
+    width: 100%;
+    flex: 1 1 auto;
   }
 </style>
