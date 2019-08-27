@@ -7,7 +7,7 @@ layout_small: true
 ---
 
 <!-- This needs to be an iframe so we can keep the page header -->
-<iframe id="api-render" src="/assets/api-render/v2.html" frameBorder="0"></iframe>
+<iframe id="api-render" src="{{ "assets/api-render/v2.html" | prepend: site.baseurl }}" frameBorder="0"></iframe>
 
 <style>
   html, body {
