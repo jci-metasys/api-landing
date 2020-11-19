@@ -22,8 +22,14 @@
 - title: 'Example Applications'
   intro: 'We have constructed some example applications below to help you see the ways in which you may interact with the API.'
   cards:
+    - title: '<i class="metasys"></i> REST Client for .NET '
+      intro: 'A .NET library containing sample apps showing how to access the most common services in the <i class="metasys"></i> API'
+      color: 'red'
+      icon:  'fa fa-cubes'
+      url: 'https://github.com/metasys-server/basic-services-dotnet'
+
     - title: 'Data Extractor'
-      intro: 'Example application to show extraction of data from the <i class="metasys"></i> API'
+      intro: 'Example application to show extraction of data from the <i class="metasys"></i> API v1 (Release 10.0)'
       color: 'purple'
       icon:  'fa fa-database'
       url: 'examples/data-extractor/'
