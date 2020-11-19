@@ -1,5 +1,5 @@
 ---
-title: "<i class="metasys"></i> REST Client for .NET"
+title: "REST Client for .NET"
 permalink: /examples/dotnet-rest-client/
 layout: post
 color: red
