@@ -53,7 +53,7 @@ jobs:
 
                   const last = urlParts[urlParts.length - 1];
                   if (last === '' || last.indexOf('.') === -1) {
-                      e.originalEvent.currentTarget.href = current + (last === '' ? '' : '/');
+                      e.originalEvent.currentTarget.href = current + (last === '' ? '' : '/') + 'index.html';
                   }
               });
               EOT
