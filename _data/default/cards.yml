@@ -26,7 +26,7 @@
       intro: 'A .NET library for consuming the <i class="metasys"></i> REST API. The repository includes an extensive README and sample apps.'
       color: 'red'
       icon:  'fa fa-cubes'
-      url: 'examples/dotnet-rest-client/'
+      external_url: 'https://github.com/metasys-server/basic-services-dotnet'
 
     - title: 'Data Extractor'
       intro: 'Example application to show extraction of data from the <i class="metasys"></i> API v1 (Release 10.0).'
