@@ -2,19 +2,19 @@
   intro: 'A guide has been created to give you information on how to quickly access the API and get you on the road to making requests ASAP! You may also access the API documentation and frequently asked questions from here as well.'
   cards:
     - title: 'Quickstart'
-      intro: 'Learn how to quickly interact with the <i class="metasys"></i> API'
+      intro: 'Learn how to quickly interact with the <i class="metasys"></i> API.'
       color: 'green'
       icon:  'fa fa-paper-plane'
       url: 'guides/quickstart/'
 
     - title: 'REST API'
-      intro: 'Browse the documentation of our REST API'
+      intro: 'Browse the documentation of our REST API.'
       color: 'blue'
       icon:  'fa fa-file-alt'
       url: 'api/v3/'
 
     - title: 'FAQs'
-      intro: 'See what problems others might be having'
+      intro: 'See what problems others might be having.'
       color: 'orange'
       icon:  'fa fa-life-ring'
       url: 'faqs/'
@@ -22,8 +22,14 @@
 - title: 'Example Applications'
   intro: 'We have constructed some example applications below to help you see the ways in which you may interact with the API.'
   cards:
+    - title: 'REST Client for .NET'
+      intro: 'A .NET library for consuming the <i class="metasys"></i> REST API. The repository includes an extensive README and sample apps.'
+      color: 'red'
+      icon:  'fa fa-cubes'
+      url: 'examples/dotnet-rest-client/'
+
     - title: 'Data Extractor'
-      intro: 'Example application to show extraction of data from the <i class="metasys"></i> API'
+      intro: 'Example application to show extraction of data from the <i class="metasys"></i> API v1 (Release 10.0).'
       color: 'purple'
       icon:  'fa fa-database'
       url: 'examples/data-extractor/'
