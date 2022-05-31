@@ -2,7 +2,7 @@
   intro: 'A guide has been created to give you information on how to quickly access the API and get you on the road to making requests ASAP! You may also access the API documentation and frequently asked questions from here as well.'
   cards:
     - title: 'Quickstart'
-      intro: 'Learn how to quickly interact with the <i class="metasys"></i> API.'
+      intro: 'Learn how to quickly interact with the <i class="metasys"></i> API v1 (Release 10.0).'
       color: 'green'
       icon:  'fa fa-paper-plane'
       url: 'guides/quickstart/'
@@ -14,7 +14,7 @@
       url: 'api/v3/'
 
     - title: 'FAQs'
-      intro: 'See what problems others might be having.'
+      intro: 'See what problems others might be having with <i class="metasys"></i> API v1 (Release 10.0).'
       color: 'orange'
       icon:  'fa fa-life-ring'
       url: 'faqs/'
