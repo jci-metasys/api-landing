@@ -19,6 +19,12 @@
       icon:  'fa fa-file-alt'
       url: 'api/v3/'
 
+    - title: 'Version Support Matrix'
+      intro: See which versions of the REST API are available for your release of Metasys.
+      color: 'green'
+      icon: 'fa fa-life-ring'
+      url: 'guides/version-support-matrix/'
+
     # - title: 'FAQs'
     #   intro: 'See what problems others might be having with <i class="metasys"></i> API v1 (Release 10.0).'
     #   color: 'orange'
