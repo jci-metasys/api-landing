@@ -4,7 +4,7 @@ permalink: /guides/version-support-matrix/
 group: versions
 layout: post
 color: green
-icon: far fa-paper-plane
+icon: fa fa-table
 ---
 
 The following table shows which versions of the REST API are available for each release of Metasys.
