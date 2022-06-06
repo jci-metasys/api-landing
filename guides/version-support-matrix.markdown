@@ -22,7 +22,7 @@ The following table shows which versions of the REST API are available for each 
 * <i class='fa fa-check-circle'></i> - Supported
 * <i class='fa fa-check'></i> - Deprecated (supported, but may be removed in a future release)
 
-[v1]: /api/v1/
-[v2]: /api/v2/
-[v3]: /api/v3/
-[v4]: /api/v4
+[v1]: /api-landing/api/v1/
+[v2]: /api-landing/api/v2/
+[v3]: /api-landing/api/v3/
+[v4]: /api-landing/api/v4
