@@ -20,7 +20,9 @@
       url: 'api/v3/'
 
     - title: 'Version Support Matrix'
-      intro: See which versions of the REST API are available for your release of Metasys.
+      intro: |
+        See which versions of the REST API are available for your release of Metasys and
+        browse the changelog for each version.
       color: 'green'
       icon: 'fa fa-table'
       url: 'guides/version-support-matrix/'

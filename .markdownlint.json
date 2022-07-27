@@ -1,0 +1,13 @@
+{
+    "default": true,
+    "ul-indent": false,
+    "line-length": false,
+    "no-inline-html": {
+      "allowed_elements": ["sup", "a", "img", "details", "summary", "br", "b", "i"]
+    },
+    "no-duplicate-header": false,
+    "no-trailing-spaces": {
+      "br_spaces": 2
+    },
+    "no-alt-text": false
+  }
