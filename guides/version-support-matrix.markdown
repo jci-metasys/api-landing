@@ -31,6 +31,26 @@ Use the following information to view all API functional changes to the _Metasys
 
 <!-- markdownlint-disable no-duplicate-heading -->
 
+## v4 - 2022-07-10
+
+### Added
+
+- Activities
+  - List activities
+  - Batch activity operations
+  - Delete activity subscription
+- Alarms
+  - Edit an alarm (acknowledge or discard an alarm)
+- Network Devices
+  - Delete a device
+
+### Changed
+
+### Removed
+
+- network devices
+  - Get network device types (See )
+
 ## v3 - 2020-12-17
 
 ### Added
