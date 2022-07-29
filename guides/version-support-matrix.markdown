@@ -14,9 +14,9 @@ The following table shows which versions of the REST API are available for each 
 | API Version |            Metasys 10.0            |            Metasys 10.1            |            Metasys 11.0            |            Metasys 12.0            |
 | ----------- | :--------------------------------: | :--------------------------------: | :--------------------------------: | :--------------------------------: |
 | [v1][]      | <i class='fa fa-check-circle'></i> |    <i class='fa fa-times'></i>     |    <i class='fa fa-times'></i>     |    <i class='fa fa-times'></i>     |
-| [v2][]      |    <i class='fa fa-times'></i>     | <i class='fa fa-check-circle'></i> | <i class='fa fa-check-circle'></i> |    <i class='fa fa-check'></i>     |
-| [v3][]      |    <i class='fa fa-times'></i>     |    <i class='fa fa-times'></i>     | <i class='fa fa-check-circle'></i> |    <i class='fa fa-check'></i>     |
-| [v4][]      |    <i class='fa fa-times'></i>     |    <i class='fa fa-times'></i>     |    <i class='fa fa-times'></i>     | <i class='fa fa-check-circle'></i> |
+| [v2][]      |                                    | <i class='fa fa-check-circle'></i> | <i class='fa fa-check-circle'></i> |    <i class='fa fa-check'></i>     |
+| [v3][]      |                                    |                                    | <i class='fa fa-check-circle'></i> |    <i class='fa fa-check'></i>     |
+| [v4][]      |                                    |                                    |                                    | <i class='fa fa-check-circle'></i> |
 
 <br>**Legend**<br>
 
