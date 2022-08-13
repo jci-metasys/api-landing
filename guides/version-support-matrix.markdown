@@ -50,22 +50,78 @@ The list of changes to the API for each version are listed below.
   - Delete object subscription
   - Added support for streaming changes of value using server sent events.
 
+#### Deprecated Operations
+
+The following operations are still supported but they are deprecated.
+
+- Alarms
+  - Get Alarms (Recommend using Get Activities instead)
+- Audits
+  - Get Audits (Recommend using GetActivities instead)
+
 #### Changed Operations
 
+- Alarms
+  - Get Alarms - **Breaking Changes**
+    - Request
+      - Changed data type of `type` query parameter from array of numbers to array of strings from `alarmValueEnumSet`.
+      - Changed data type of `category` query parameter from array of numbers to array of strings from `objectCategoryEnumSet`.
+      - Replaced `excludeDiscarded`, `excludeAcknowledged` and `excludePending` query parameters with `includeAcknowledged` and `includeDiscarded`.
+      - Added query parameters `includeAcknowledgementRequired` and `includeAcknowledgementNotRequired`.
+      - Added query parameters `object`, `equipment` and `space`.
+      - Removed query parameter `attribute`.
+    - Response
+      - Replaced `isAcknowledged` and `isDiscarded` properties of the alarm data model with `activityManagementStatus` property.
+      - Modified the schema of the `triggerValue` property of the alarm data model to be more descriptive.
+      - Added `spaces` and `equipment` properties to the alarm data model.
+  - Get Alarms for an Object or a Network Device - **Breaking Changes**
+    - These operations were modified in the same was as Get Alarms
+  - Get Alarm - **Breaking Changes**
+    - Response has been modified in the same ways as the response to Get Alarms
+- Audits
+  - Get Audits - **Breaking Changes**
+    - Request
+      - Renamed `classesLevels` query parameter to `classLevel` and changed data type from array of numbers to array of strings from `auditClassesEnumSet`.
+      - Renamed `originalApplications` query parameter to `originApplication` and changed data type from array of numbers to array of strings from `auditOriginAppEnumSet`.
+      - Renamed `actionTypes` to `actionType` and changed data type from array of numbers to array of strings from `auditActionTypeEnumSet`.
+      - Removed `excludeDiscarded` query parameter.
+      - Added query parameters: `user`, `includeDiscarded`, `equipment`, `object` and `space`.
+      - Removed `includeSchema` query parameter (no longer needed as data within an audit is now self-describing).
+    - Response
+      - Added `activityManagementStatus` to audit data model.
+      - Modified schema of `preData`, `postData` and `parameters` of the audit data model to better describe the data. Each value is presented along with a JSON Schema describing that value.
+      - Removed `legacy` from the audit data model and moved the properties contained in it directly into the audit data model. The properties `itemName` and `fullyQualifiedReferenced` were renamed to `objectName` and `itemReference`.
+  - Get Audits for an Object - **Breaking Changes**
+    - Request and response were modified in the same ways as Get Audits.
+  - Get Audit - **Breaking Changes**
+    - Removed `includeSchema` query parameter.
+    - Response
+      - Response has been modified in the same ways as the response to Get Audits.
+  - Discard an Audit - **Breaking Changes**
+    - Renamed to "Edit an audit"
+    - Method changed from a `PUT` to a `PATCH`
+    - Path changed form `/audits/{id}/discard` to `/audits/{id}`
+    - Added body to specify properties to edit (currently only `activityManagementStatus` is directly editable).
+  - Get Audit Annotations
+    - Added `startTime` and `endTime` query parameters.
 - Objects
   - Get Objects - **Breaking Changes**
     - Renamed to "List objects".
-    - The response is no longer a paged array but a tree representation.
-    - Removed `type`, `page`, `pageSize` and `sort` parameters.
-    - Added `depth`, `flatten`, `includeExtensions` and `pathTo` query parameters.
-    - Removed `total`, `prev` and `next` properties from response payload.
-    - Replaced `typeUrl` property with `objectType` in the object model.
-    - Added `items`, `hasChildrenMatchingQuery` and `classification` properties to the object model.
+    - Request
+      - Removed `type`, `page`, `pageSize` and `sort` query parameters.
+      - Added `depth`, `flatten`, `includeExtensions` and `pathTo` query parameters.
+    - Response
+      - The response is no longer a paged array but a tree representation.
+      - Removed `total`, `prev` and `next` properties from response payload.
+      - Replaced `typeUrl` property with `objectType` in the object model.
+      - Added `items`, `hasChildrenMatchingQuery` and `classification` properties to the object model.
   - Get Object Children - **Breaking Changes**
     - Renamed to "List child objects".
-    - Removed `page`, `pageSize` and `sort` query parameters.
-    - Added `depth`, `flatten`, `includeExtensions`, `pathTo`, `objectType` and `classification` query parameters.
-    - Response has been modified in the same ways as the response to List Objects.
+    - Request
+      - Removed `page`, `pageSize` and `sort` query parameters.
+      - Added `depth`, `flatten`, `includeExtensions`, `pathTo`, `objectType` and `classification` query parameters.
+    - Response
+      - Response has been modified in the same ways as the response to Get Objects.
   - Get a single object attribute
     - Renamed to "Get attribute value".
     - Added `METASYS-SUBSCRIBE` header parameter to allow for change of value subscriptions.
