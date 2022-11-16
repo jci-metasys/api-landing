@@ -27,6 +27,11 @@
       icon: 'fa fa-table'
       url: 'guides/version-support-matrix/'
 
+    - title: 'Guidelines for Reading Attributes'
+      url: '/guides/attribute-access-guidelines/'
+      color: green
+      icon: fa fa-file-alt
+
     # - title: 'FAQs'
     #   intro: 'See what problems others might be having with <i class="metasys"></i> API v1 (Release 10.0).'
     #   color: 'orange'
