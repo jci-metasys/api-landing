@@ -81,15 +81,6 @@ jobs:
           command: |
             sudo apt-get install jq
 
-            pr_response=$(curl --location --request GET "https://api.github.com/repos/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/pulls/$CIRCLE_PR_NUMBER/comments" \
-            -u $GH_USER:$GH_TOKEN)
-
-            if [ $(echo $pr_response | jq length) -eq 0 ]; then
-              echo "No PR found to update"
-            else
-              pr_comment_url=$(echo $pr_response | jq -r ".[]._links.comments.href")
-            fi
-
             # Find all comments that already say "Circle CI Preview Available"
             # Based on following command that works (Note we use /issues and not /pulls because these comments are not on specific code blocks)
             # curl https://api.github.com/repos/metasys-server/api-landing/issues/68/comments | jq '.[] | {body: .body, url: .url} | select(.body | contains("required"))'
@@ -98,7 +89,7 @@ jobs:
 
             # Add a new comment with new Preview
             curl -X Post -H "Accept: application/vnd.github+json" -u "$GH_USER:$GH_TOKEN" \
-            "https://api.github.com/repos/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/issues/$CIRCLE_PR_NUMBER/comments" \
+            "https://api.github.com/repos/metasys-server/api-landing/issues/$CIRCLE_PR_NUMBER/comments" \
             -d '{"body": "Circle CI Preview Available: https://output.circle-artifacts.com/output/job/${CIRCLE_WORKFLOW_JOB_ID}/artifacts/0/site-preview/index.html"}'
 
             # Delete all previous comments
