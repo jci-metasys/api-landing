@@ -37,8 +37,18 @@ jobs:
       - run:
           name: Update config
           command: |
-            echo "url: \"$CIRCLE_BUILD_URL$CIRCLE_NODE_INDEXartifacts$CIRCLE_ARTIFACTS\"" > _config-tc.yml
-            echo "baseurl: \"/0/site-preview/\"" >> _config-tc.yml
+            # The template for artifacts is documented h
+            # here https://support.circleci.com/hc/en-us/articles/5034956515355-How-to-Programmatically-Construct-the-URLs-for-Artifacts
+            # As of Feb 16, 2023
+
+            # It looks something like:
+            # https://output.circle-artifacts.com/output/job/e14e97ae-9254-4e73-83ee-d3ccd354a45b/artifacts/0/site-preview/index.html
+            # so the url is https://output.circle-artifacts.com
+            # and the baseurl is /output/job/{jobid}/artifacts/0/site-preview/
+            # the jobid is given by ${CIRCLE_WORKFLOW_JOB_ID}
+
+            echo "url: \"https://output.circle-artifacts.com\"" > _config-tc.yml
+            echo "baseurl: \"/output/job/${CIRCLE_WORKFLOW_JOB_ID}/artifacts/0/site-preview/\"" >> _config-tc.yml
 
       - run: bundle exec jekyll build --config _config.yml,_config-tc.yml
 
