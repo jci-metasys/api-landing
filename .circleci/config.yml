@@ -40,6 +40,7 @@ jobs:
             echo "CIRCLE_BUILD_URL: $CIRCLE_BUILD_URL"
             echo "CIRCLE_NODE_INDEX: $CIRCLE_NODE_INDEX"
             echo "CIRCLE_ARTIFACTS: $CIRCLE_ARTIFACTS"
+            echo "CIRCLE_JOB: $CIRCLE_JOB"
             echo "url: \"$CIRCLE_BUILD_URL$CIRCLE_NODE_INDEXartifacts$CIRCLE_ARTIFACTS\""
             echo "baseurl: \"/0/site-preview/\""
             echo "url: \"$CIRCLE_BUILD_URL$CIRCLE_NODE_INDEXartifacts$CIRCLE_ARTIFACTS\"" > _config-tc.yml
