@@ -8,7 +8,7 @@ source "https://rubygems.org"
 #
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
-gem "jekyll", "~> 3.8.3"
+gem "jekyll", "~> 3.9.3"
 
 gem "jekyll-remote-theme"
 gem "jekyll-sitemap"
@@ -16,6 +16,7 @@ gem "jekyll-paginate"
 gem "jekyll-redirect-from"
 
 gem "jekyll-theme-prettydocs", :path => "_themes"
+gem "webrick"
 
 # If you want to use GitHub Pages, remove the "gem "jekyll"" above and
 # uncomment the line below. To upgrade, run `bundle update github-pages`.
@@ -23,8 +24,13 @@ gem "jekyll-theme-prettydocs", :path => "_themes"
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
-  gem "jekyll-feed", "~> 0.6"
+  gem "jekyll-feed", "~> 0.15.1"
 end
+
+# Call out specific versions to match GitHub Pages
+gem "rouge", "~> 3.26.0"
+gem "kramdown", "~> 2.3.2"
+gem "kramdown-parser-gfm", "~> 1.1.0"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
