@@ -69,11 +69,13 @@ jobs:
                   if (urlParts.length < 2) return;
 
                   const last = urlParts[urlParts.length - 1];
+                  if (last == 'v4') {
+                    e.originalEvent.currentTarget.href = current + ".html"
+                  }
                   if (last === '' || last.indexOf('.') === -1) {
                       e.originalEvent.currentTarget.href = current + (last === '' ? '' : '/') + 'index.html';
                   }
-              });
-              EOT
+              }); EOT
 
       - store_artifacts:
           path: ~/repo/_site
