@@ -37,6 +37,8 @@ jobs:
       - run:
           name: Update config
           command: |
+            echo "url: \"$CIRCLE_BUILD_URL$CIRCLE_NODE_INDEXartifacts$CIRCLE_ARTIFACTS\""
+            echo "baseurl: \"/0/site-preview/\""
             echo "url: \"$CIRCLE_BUILD_URL$CIRCLE_NODE_INDEXartifacts$CIRCLE_ARTIFACTS\"" > _config-tc.yml
             echo "baseurl: \"/0/site-preview/\"" >> _config-tc.yml
 
