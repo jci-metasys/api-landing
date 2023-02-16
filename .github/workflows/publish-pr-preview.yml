@@ -1,0 +1,52 @@
+name: Publish API Preview for Preview
+
+on:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description:
+          The source reference (branch, tag, commit) to generate the pages for.
+        required: true
+
+concurrency: publish-preview
+jobs:
+  publish:
+    name: Publish Preview
+    runs-on: [self-hosted]
+    steps:
+      - name: Checkout (master, v*, or PR)
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+        if: ${{ github.event_name != 'workflow_dispatch' }}
+
+      - name: Checkout (manual)
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.inputs.ref }}
+        if: ${{ github.event_name == 'workflow_dispatch' }}
+
+      - name: Initialize submodule
+        run:
+          git submodule init
+
+      - run:
+          git submodule update
+
+      # - name: Set up Ruby
+      #   uses: ruby/setup-ruby@v1
+
+      - name: Install Project Dependencies
+        run: bundle install --jobs=4 --retry=3
+
+      - name: Build Site
+        run: bundle exec jekyll build --config _config.yml #,_config-tc.yml
+
+      - name: 'Upload Artifact'
+        uses: actions/upload-artifact@v3
+        with:
+          name: site
+          path: _site/
+          retention-days: 3
+
