@@ -56,7 +56,7 @@ jobs:
                       e.originalEvent.currentTarget.href = current + (last === '' ? '' : '/') + 'index.html';
                   }
               });
-              EOT
+            EOT
 
       - store_artifacts:
           path: ~/repo/_site
