@@ -45,11 +45,15 @@ jobs:
             echo "CIRCLE_WORKFLOW_ID $CIRCLE_WORKFLOW_ID"
             echo "CIRCLE_WORKFLOW_JOB_ID $CIRCLE_WORKFLOW_JOB_ID"
             echo "CIRCLE_WORKFLOW_WORKSPACE_ID $CIRCLE_WORKFLOW_WORKSPACE_ID"
-            
 
-            echo "url: \"$CIRCLE_BUILD_URL$CIRCLE_NODE_INDEXartifacts$CIRCLE_ARTIFACTS\""
+            echo "template"
+            echo "https://output.circle-artifacts.com/output/job/${CIRCLE_WORKFLOW_JOB_ID}/artifacts/${CIRCLE_NODE_INDEX}/"
+            echo "url: \"https://output.circle-artifacts.com/output/job/${CIRCLE_WORKFLOW_JOB_ID}/artifacts/${CIRCLE_NODE_INDEX}\""
+
+            # echo "url: \"$CIRCLE_BUILD_URL$CIRCLE_NODE_INDEXartifacts$CIRCLE_ARTIFACTS\""
             echo "baseurl: \"/0/site-preview/\""
-            echo "url: \"$CIRCLE_BUILD_URL$CIRCLE_NODE_INDEXartifacts$CIRCLE_ARTIFACTS\"" > _config-tc.yml
+            # echo "url: \"$CIRCLE_BUILD_URL$CIRCLE_NODE_INDEXartifacts$CIRCLE_ARTIFACTS\"" > _config-tc.yml
+            echo "url: \"https://output.circle-artifacts.com/output/job/${CIRCLE_WORKFLOW_JOB_ID}/artifacts/${CIRCLE_NODE_INDEX}\"" > _config-tc.yml
             echo "baseurl: \"/0/site-preview/\"" >> _config-tc.yml
 
       - run: bundle exec jekyll build --config _config.yml,_config-tc.yml
