@@ -90,10 +90,10 @@ jobs:
             # curl -X Post -H "Accept: application/vnd.github+json" -u "$GH_USER:$GH_TOKEN" \
             # "https://api.github.com/repos/metasys-server/api-landing/issues/$CIRCLE_PR_NUMBER/comments" \
             # -d '{"body": "Circle CI Preview Available: https://output.circle-artifacts.com/output/job/${CIRCLE_WORKFLOW_JOB_ID}/artifacts/0/site-preview/index.html"}'
-            
+
             # CIRCLE_PR_NUMBER is only set on prs from forks. This article https://support.circleci.com/hc/en-us/articles/360047521451-Why-is-CIRCLE-PR-NUMBER-empty-
             # details how to use CIRCLE_PULL_REQUEST to get the number.
-            .circleci/post-comment.sh $GH_USER $GH_TOKEN metasys-server api-landing ${CIRCLE_PULL_REQUEST##*/} $CIRCLE_WORKFLOW_JOB_ID
+            .circleci/post-comment.sh $GH_USER $GH_TOKEN metasys-server api-landing ${CIRCLE_PULL_REQUEST##*/} $CIRCLE_WORKFLOW_ID
 
             # Delete all previous comments
 
