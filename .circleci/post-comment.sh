@@ -7,9 +7,10 @@ REPO=$4
 PR=$5
 JOB_ID=$6
 
-# pr_comments_response=$(curl --location "https://api.github.com/repos/$ORG/$REPO/issues/$PR/comments" \
-#             -u "$USER:$TOKEN" | jq '.[] | {body: .body, url: .url} | select(.body | contains("Circle CI Preview Available"))')
+pr_comments_response=$(curl --location "https://api.github.com/repos/$ORG/$REPO/issues/$PR/comments" \
+            -u "$USER:$TOKEN" | jq '.[] | {body: .body, url: .url} | select(.body | contains("Circle CI Preview Available"))')
 
+echo $pr_comments_response
 # echo $pr_comments_response
 
 preview_comment="Circle CI Preview Available: https://output.circle-artifacts.com/output/job/${JOB_ID}/artifacts/0/site-preview/index.html"
