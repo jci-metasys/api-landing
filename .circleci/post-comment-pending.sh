@@ -1,4 +1,11 @@
 #!/bin/bash
+
+# Purpose:
+# Checks to see if there already exists a comment on the PR that says Circle CI Preview Available.
+#   - If it does exist, then it's updated to say "Circle CI Preview currently being generated"
+#   - If it does not exist, then a new comment is created that says that.
+
+
 set -x
 USER=$1
 TOKEN=$2
@@ -23,7 +30,7 @@ JOB_ID=$6
 preview_comment_url=$(curl --location "https://api.github.com/repos/$ORG/$REPO/issues/$PR/comments" \
             -u "$USER:$TOKEN" | jq  '.[] | select(.body | contains("Circle CI Preview"))' | jq -r -s '. | first | .url')
 
-preview_comment="Circle CI Preview Available: https://output.circle-artifacts.com/output/job/${JOB_ID}/artifacts/0/site-preview/index.html"
+preview_comment="Circle CI Preview currently being generated in job: ${JOB_ID}"
 comment_body="{\"body\": \"$preview_comment\"}"
 
 echo $comment_body
