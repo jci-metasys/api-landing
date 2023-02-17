@@ -1,0 +1,10 @@
+_incudes/
+_data/
+_layouts/
+_site/
+_themes/
+.circleci/
+.sass-cache/
+api/
+assets/
+
