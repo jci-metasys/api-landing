@@ -76,7 +76,7 @@ jobs:
           name: Post Preview URL to GitHub PR
           command: |
             sudo apt-get install jq
-            .circleci/post-comment-pending.sh $GH_USER $GH_TOKEN metasys-server api-landing ${CIRCLE_PULL_REQUEST##*/} $CIRCLE_WORKFLOW_JOB_ID
+            .circleci/post-comment-pending.sh $GH_USER $GH_TOKEN metasys-server api-landing ${CIRCLE_PULL_REQUEST##*/} $CIRCLE_WORKFLOW_ID
 
       - store_artifacts:
           path: ~/repo/_site
