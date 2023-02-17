@@ -34,7 +34,7 @@ echo $CIRCLE_BUILD_NUM
 echo $CIRCLE_BUILD_URL
 echo $CIRCLE_JOB
 
-preview_comment="Circle CI Preview currently being generated"
+preview_comment="Circle CI Preview currently [being generated]($CIRCLE_BUILD_URL)"
 comment_body="{\"body\": \"$preview_comment\"}"
 
 echo $comment_body
