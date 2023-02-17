@@ -116,6 +116,41 @@ Instead issue the command in "intel" mode.
 arch -x86_64 bundle exec jekyll serve --livereload
 ```
 
-Note: I did not have issues with these dependencies when using Ruby 3.1.3 which was installed using `install-ruby`.
+Note: I did not have issues with these dependencies when using Ruby 3.1.3 which
+was installed using `install-ruby`.
+
+## Documentation on PR Preview Builds
+
+We use Circle CI for PR Preview Builds rather than GitHub Actions. This is
+partially for legacy reasons (GitHub Actions didn't exist at the time this repo
+was created). But it's also because GitHub doesn't have the type of artifacts we
+want. With Circle CI we can up load the entire preview site as individual files.
+With GitHub Actions the pre-built site is zipped up into a single downloadable
+artifact&mdash;which makes it impossible to link to individual files.
+
+Circle CI Builds are triggered every time a branch changes. But we only want the
+build to run as part of a PR. At the time of writing PR triggers did not exist
+on Circle CI. See [Circle CI Triggers Overview][triggers].
+
+Our preview build is intended to help as part of a PR, so the build exits
+immediately if it determines there is no PR associated with the branch.
+
+We use a separate GitHub action that is triggered when a PR is opened or
+reopened. It then uses the [Circle CI Pipeline Trigger API][pipeline] to run the
+build.
+
+When the Circle CI build runs, it immediately checks the PR for any previous
+comments from itself. If none are found, then a new commit is added to the PR
+that informs users that "Circle CI Preview is being generated" and includes a
+link to the build. If a previous comment is found, then that commit is modified
+to state that a "Circle CI Preview is being generated".
+
+When the build is completed and the artifacts are uploaded, then the job looks
+for it's previous commit and changes the body to say "Circle CI Preview
+Available" with a link to the preview site.
 
 [guides]: https://jekyllrb.com/docs/installation/#guides
+[triggers]: https://circleci.com/docs/triggers-overview/
+
+<!-- prettier-ignore -->
+[pipeline]: https://circleci.com/docs/triggers-overview/#run-a-pipeline-using-the-api
