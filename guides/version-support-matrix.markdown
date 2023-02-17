@@ -7,6 +7,7 @@ color: green
 icon: fa fa-table
 ---
 
+Hi!
 <!-- markdownlint-disable no-duplicate-heading -->
 
 The following table shows which versions of the REST API are available for each release of Metasys.
