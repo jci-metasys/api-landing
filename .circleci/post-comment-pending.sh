@@ -30,9 +30,11 @@ WORKFLOW_ID=$6
 preview_comment_url=$(curl --location "https://api.github.com/repos/$ORG/$REPO/issues/$PR/comments" \
             -u "$USER:$TOKEN" | jq  '.[] | select(.body | contains("Circle CI Preview"))' | jq -r -s '. | first | .url')
 
-echo $(pipeline.number)
+echo $CIRCLE_BUILD_NUM
+echo $CIRCLE_BUILD_URL
+echo $CIRCLE_JOB
 
-preview_comment="Circle CI Preview currently being generated: ${WORKFLOW_ID}"
+preview_comment="Circle CI Preview currently being generated"
 comment_body="{\"body\": \"$preview_comment\"}"
 
 echo $comment_body
