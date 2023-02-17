@@ -23,7 +23,7 @@ JOB_ID=$6
 preview_comment_url=$(curl --location "https://api.github.com/repos/$ORG/$REPO/issues/$PR/comments" \
             -u "$USER:$TOKEN" | jq  '.[] | select(.body | contains("Circle CI Preview"))' | jq -r -s '. | first | .url')
 
-preview_comment="Circle CI Preview Available: https://output.circle-artifacts.com/output/job/${JOB_ID}/artifacts/0/site-preview/index.html"
+preview_comment="Circle CI Preview [Available](https://output.circle-artifacts.com/output/job/${JOB_ID}/artifacts/0/site-preview/index.html)"
 comment_body="{\"body\": \"$preview_comment\"}"
 
 echo $comment_body
