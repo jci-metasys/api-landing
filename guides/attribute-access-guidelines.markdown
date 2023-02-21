@@ -9,24 +9,29 @@ icon: fa fa-file-alt
 
 <!-- markdownlint-disable no-duplicate-heading -->
 
-The following sections contain guidelines for accessing attribute values efficiently in the Metasys API.
+The following sections contain guidelines for accessing attribute values efficiently using the Metasys API while maintaining Metasys system performance.  In general, minimize the quantity or frequency of reading values to what makes sense for your application. For example, controlled spaces temperatures do not vary greatly within 5 to 10 minutes. Polling a space temperature every minute not only yields relatively unchanged data but places a greater stress on the Metasys system.
 
-## Guidelines for batch reading of attribute values
+## Guidelines for polling attribute values
 
-Reading attribute values using batch operations, that is, polling points, can affect engine and server performance and the response times for queries. To ensure optimal performance and response times, use the following guidelines for batch reading of attribute values:
+Polling attribute values can affect engine and server performance and the response times for queries. To ensure optimal performance and response times, use the following guidelines for batch polling attribute values:
 
 - The supported maximum for polling is 750 points per engine.
 - The supported maximum for streaming is 1,500 points per engine.
-- The supported server maximums are as follows: **MISSING**
+- The maximum number of batch requests supported by the server is 20 per minute.
 - Use polling for points that change their value frequently, for example, flow, pressure, and output values. For points that do not change their value frequently, for example, zone air temperature and heating output, use streaming.
 - Do not poll points more frequently than once per minute.
-- To reduce the number of points polled, use the COV Min Time attribute at the point and at the engine.
+- To reduce the number of points polled, use the COV Min Time attribute at the point and at the engine and stream those points instead.
 - Run batch operations only for as long as you need the data.
 - Always close the connection after you receive the response.
 
+Streaming attribute values, introduced with version 4, allows you to sign up for attribute value changes instead of constant polling. The use of streaming can significantly reduce the network traffic and maintain the performance of the Metasys system. To ensure optimal performance and response times, use the following guidelines for streaming attribute values:
+
+- Ensure that the Display Precision attribute makes sense for the object you are streaming. For example, if you are streaming a supply flow with a range of 0 to 1,000 cfm, set the Display Precision closer to 100s. A value of 10ths for Display Precision would flood the stream with no practical value.
+- For getting consistent time stamps for your application, backfill previous times after receiving the change.
+
 ## Polling and streaming example
 
-The following example illustrates how to use polling and streaming while still maintaining the necessary resource performance to properly run Metasys software.
+The following example illustrates how to use both polling and streaming while still maintaining the necessary resource performance to properly run Metasys software.
 
 **Note**: All values in the following tables are approximate values.
 
@@ -43,7 +48,7 @@ The following table shows an example SNE with the number of points that generall
 | | | | Average monitoring | Average monitoring | Heavy monitoring | Heavy monitoring |
 | 72 VAVs           |            24 |         1728 |     288 |       288 |     288 |       792 |
 | 2 AHUs            |            44 |           88 |      20 |        36 |      18 |        50 |
-| 7 UH              |            22 |          154 |       7 |        77 |      14 |        98 |
+| 7 UHs             |            22 |          154 |       7 |        77 |      14 |        98 |
 | 3 EFs             |             6 |           18 |       0 |         9 |       0 |        18 |
 | 1 Sump pump       |             2 |            2 |       0 |         1 |       0 |         2 |
 | Total: 85         |            98 |         1990 |     315 |       411 |     320 |       960 |
@@ -85,7 +90,7 @@ The following table contains the VAV points in this example to poll and stream i
 
 **Notes**:
 
-- SA-F: Changes frequently and cannot be controlled through the API. Only poll in the frequency that you need, but normally it is not needed every minute.
+- SA-F: Changes frequently and cannot be properly controlled outside of Metasys using the API. Only poll in the frequency that you need, but normally it is not needed every minute.
 - DA-VP: Changes frequently and does not provide valuable information, do not poll or stream.
 - If the polled points use COV Min Time (by default 15 seconds), then you can move to streaming.
 
