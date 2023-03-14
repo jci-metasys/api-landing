@@ -28,6 +28,7 @@
       url: 'guides/version-support-matrix/'
 
     - title: 'Guidelines for Reading Attributes'
+      intro: 'See guidelines and rate limits for polling and streaming attribute values.'
       url: '/guides/attribute-access-guidelines/'
       color: green
       icon: fa fa-file-alt
