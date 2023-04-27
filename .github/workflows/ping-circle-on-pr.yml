@@ -25,4 +25,4 @@ jobs:
         -H 'Content-Type: application/json' \
         -H 'Accept: application/json' \
         -d "{\"branch\":\"${CIRCLE_BRANCH}\"}" \
-        https://circleci.com/api/v2/project/gh/metasys-server/api-landing/pipeline
+        https://circleci.com/api/v2/project/gh/jci-metasys/api-landing/pipeline

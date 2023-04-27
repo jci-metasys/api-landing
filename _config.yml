@@ -6,9 +6,9 @@ force-https: True
 lang: "en"
 paginate: 5
 
-url: "https://metasys-server.github.io/api-landing"
+url: "https://jci-metasys.github.io/api-landing"
 baseurl: "/api-landing/"
-remote_theme: metasys-server/jekyll-theme-prettydocs
+remote_theme: jci-metasys/jekyll-theme-prettydocs
 pre_release: false
 
 # TODO: Local - Comment out before publishing
@@ -19,7 +19,7 @@ pre_release: false
 
 # Build Settings
 github:             [metadata]
-encoding:           UTF-8 
+encoding:           UTF-8
 markdown:           kramdown
 highlighter:        rouge
 kramdown:
