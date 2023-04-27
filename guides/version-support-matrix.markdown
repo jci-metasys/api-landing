@@ -150,7 +150,7 @@ The following operations are still supported but they are deprecated.
 
 #### Added
 
-- [API version 3 release documentation](https://metasys-server.github.io/api-landing/api/v3/#) with Metasys 11.0
+- [API version 3 release documentation](https://jci-metasys.github.io/api-landing/api/v3/#) with Metasys 11.0
 
 - Audits
   - Add audit annotation
@@ -210,7 +210,7 @@ The following operations are still supported but they are deprecated.
 
 #### Added
 
-- [API version 2 release documentation](https://metasys-server.github.io/api-landing/api/v2/#) with Metasys 10.1
+- [API version 2 release documentation](https://jci-metasys.github.io/api-landing/api/v2/#) with Metasys 10.1
 - Objects
   - Lookup object ID
   - Get a single object attribute
@@ -237,7 +237,7 @@ The following operations are still supported but they are deprecated.
 
 #### Added
 
-- Initial [API version 1 release documentation](https://metasys-server.github.io/api-landing/api/v1/#) with Metasys 10.0
+- Initial [API version 1 release documentation](https://jci-metasys.github.io/api-landing/api/v1/#) with Metasys 10.0
 - Alarms
   - Get alarms
   - Get a single alarm

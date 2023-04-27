@@ -1,11 +1,11 @@
 # Metasys API Landing Page
 
-[![CircleCI](https://circleci.com/gh/metasys-server/api-landing.svg?style=svg)](https://circleci.com/gh/metasys-server/api-landing)
+[![CircleCI](https://circleci.com/gh/jci-metasys/api-landing.svg?style=svg)](https://circleci.com/gh/jci-metasys/api-landing)
 
 <!-- cSpell:ignore apiaryio -->
 
 The landing page for the
-[Metasys Server API Documentation](https://metasys-server.github.io/api-landing)
+[Metasys Server API Documentation](https://jci-metasys.github.io/api-landing)
 
 ## Contributing
 
