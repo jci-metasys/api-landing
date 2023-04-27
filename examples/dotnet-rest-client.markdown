@@ -14,6 +14,6 @@ The <i class="metasys"></i> is a .NET library for consuming the <i class="metasy
 
 You may browse the library and look at how the .NET sample applications interact with the <i class="metasys"></i> API.
 
-<a href="https://github.com/metasys-server/basic-services-dotnet" class="btn btn-green" target="_blank" markdown="1">
+<a href="https://github.com/jci-metasys/basic-services-dotnet" class="btn btn-green" target="_blank" markdown="1">
   <i class="fas fa-code"></i> View Library
 </a>
