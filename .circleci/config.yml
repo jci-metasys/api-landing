@@ -98,7 +98,8 @@ jobs:
           name: Post Preview URL to GitHub PR
           command: |
             sudo apt-get install jq
-            .circleci/post-comment.sh $GH_USER $GH_TOKEN jci-metasys api-landing ${CIRCLE_PULL_REQUEST##*/} $CIRCLE_WORKFLOW_JOB_ID
+            PR=$(git ls-remote origin 'pull/*/head' | grep -F -f <(git rev-parse HEAD) | awk -F'/' '{print $3}')
+            .circleci/post-comment.sh $GH_USER $GH_TOKEN jci-metasys api-landing $PR $CIRCLE_WORKFLOW_JOB_ID
 
 
 
