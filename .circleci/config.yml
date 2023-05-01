@@ -13,13 +13,13 @@ jobs:
     steps:
       # Check to see if it's a pull request and if not exit
       # We have a separate GitHub workflow to retrigger this on a pull request
-      - run:
-          name: Check for PR or master
-          command: |
-            if [ -z "$CIRCLE_PULL_REQUEST" ]; then
-              echo "Not a PR"
-              circleci step halt
-            fi
+      # - run:
+      #     name: Check for PR or master
+      #     command: |
+      #       if [ -z "$CIRCLE_PULL_REQUEST" ]; then
+      #         echo "Not a PR"
+      #         circleci step halt
+      #       fi
       - checkout
       - run:
           name: Pull submodules
