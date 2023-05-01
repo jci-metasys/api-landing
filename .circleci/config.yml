@@ -16,10 +16,13 @@ jobs:
       - run:
           name: Check for PR or master
           command: |
-            if [ -z "$CIRCLE_PULL_REQUEST" ]; then
-              echo "Not a PR"
-              circleci step halt
-            fi
+            echo "$CIRCLE_PULL_REQUEST"
+            # the rest is commented out for now since it
+            # is incorrectly exiting even on pull requests.
+            # if [ -z "$CIRCLE_PULL_REQUEST" ]; then
+            #  echo "Not a PR"
+            #  circleci step halt
+            # fi
       - checkout
       - run:
           name: Pull submodules
