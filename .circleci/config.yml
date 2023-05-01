@@ -16,7 +16,8 @@ jobs:
       - run:
           name: Check for PR or master
           command: |
-            if [ -z "$CIRCLE_PULL_REQUEST" ]; then
+            PR=$(git ls-remote origin 'pull/*/head' | grep -F -f <(git rev-parse HEAD) | awk -F'/' '{print $3}')
+            if [ -z "$PR" ]; then
               echo "Not a PR"
               circleci step halt
             fi
@@ -37,7 +38,8 @@ jobs:
           name: Post Preview Build Url
           command: |
             sudo apt-get install jq
-            .circleci/post-comment-pending.sh $GH_USER $GH_TOKEN jci-metasys api-landing ${CIRCLE_PULL_REQUEST##*/} $CIRCLE_WORKFLOW_ID
+            PR=$(git ls-remote origin 'pull/*/head' | grep -F -f <(git rev-parse HEAD) | awk -F'/' '{print $3}')
+            .circleci/post-comment-pending.sh $GH_USER $GH_TOKEN jci-metasys api-landing $PR $CIRCLE_WORKFLOW_ID
 
       - run:
           name: Install dependencies
