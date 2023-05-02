@@ -1,5 +1,9 @@
 - title: 'Getting started is easy!'
-  intro: 'A guide has been created to give you information on how to quickly access the API and get you on the road to making requests ASAP! You may also access the API documentation and frequently asked questions from here as well.'
+  intro: |
+    You may also access the API documentation and frequently asked questions from here as well.
+
+    If you see a problem with the documentation please submit an <a href="https://github.com/jci-metasys/api-landing/issues">issue</a>.
+
   cards:
     # - title: 'Quickstart'
     #   intro: 'Learn how to quickly interact with the <i class="metasys"></i> API v1 (Release 10.0).'
