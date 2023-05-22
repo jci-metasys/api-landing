@@ -9,18 +9,83 @@ icon: far fa-paper-plane
 
 ## Overview
 
-The <i class="metasys"></i> API provides easy access for you to pull raw data
-out into your own processing and analytic mechanisms. The API mainly supports
-historical data fetching but also supports gathering information about the site
-and all of its child elements.
+The <i class="metasys"></i> API provides access to your historical data (like time series and alarm data)
+and also allows you to monitor and command the current state of your system.
+
+This quick start will show you some common operations you can use to get started. All examples will be shown using HTTP and `curl`. For examples in other languages see the documentation.
+
+<ul id="profileTabs" class="nav nav-tabs">
+    <li class="active"><a href="#profile" data-toggle="tab">Profile</a></li>
+    <li><a href="#about" data-toggle="tab">About</a></li>
+    <li><a href="#match" data-toggle="tab">Match</a></li>
+</ul>
+  <div class="tab-content">
+<div role="tabpanel" class="tab-pane active" id="profile">
+    <h2>Profile</h2>
+<p>Praesent sit amet fermentum leo....</p>
+</div>
+
+<div role="tabpanel" class="tab-pane" id="about">
+    <h2>About</h2>
+    <p>Lorem ipsum ...</p></div>
+
+<div role="tabpanel" class="tab-pane" id="match">
+    <h2>Match</h2>
+    <p>Vel vehicula ....</p>
+</div>
+</div>
 
 ## Resources
 
 Each resource available is queried by using its noun appended to the base URL of
 the API as shown below:
 
+<ul id="profileTabs" class="nav nav-tabs">
+  <li class="active"><a href="#html" data-toggle="tab">HTML</a></li>
+  <li><a href="#curl" data-toggle="tab">curl</a></li>
+  <li><a href="#csharp" data-toggle="tab">C#</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane active" id="html">
+    <h2>HTML</h2>
+    <p>
+      <pre class=" language-http"><code class=" language-http"><span class="token request-line"><span class="token property">GET</span> https://&lt;server-url&gt;/api/v1/spaces HTTP/1.1</span>
+      </code></pre>
+    </p>
+  </div>
+
+  <div role="tabpanel" class="tab-pane" id="curl">
+    <h2>curl</h2>
+    <p>
+      <pre class="language-shell"><code class="language-shell"><span class="token function">curl</span> https://<span class="token punctuation">{</span>server-url<span class="token punctuation">}</span>/api/v1/spaces
+      </code></pre>
+    </p>
+  </div>
+
+  <div role="tabpanel" class="tab-pane" id="csharp">
+    <h2>C#</h2>
+    <p>
+      <pre class="language-csharp"><code class="language-csharp">
+var client = new RestClient("https:///%7Bhostname%7D/api/v4/spaces?type=spaceTypesEnumSet.building&amp;page=1&amp;pageSize=100&amp;sort=name");
+var request = new RestRequest(Method.GET);
+request.AddHeader("Authorization", "Bearer REPLACE_BEARER_TOKEN");
+IRestResponse response = client.Execute(request);
+      </code></pre>
+    </p>
+  </div>
+</div>
+
 ```http
 GET https://<server-url>/api/v1/spaces HTTP/1.1
+```
+
+In C#:
+
+```csharp
+var client = new RestClient("https:///%7Bhostname%7D/api/v4/spaces?type=spaceTypesEnumSet.building&page=1&pageSize=100&sort=name");
+var request = new RestRequest(Method.GET);
+request.AddHeader("Authorization", "Bearer REPLACE_BEARER_TOKEN");
+IRestResponse response = client.Execute(request);
 ```
 
 This shows an example of retrieving all spaces from the site director. Once

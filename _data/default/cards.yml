@@ -35,7 +35,7 @@
 
     - title: Quick Start Guide
       intro: Get a quick introduction to use the <i class="metasys"></i> REST API
-      url: /guides/quickstart
+      url: /guides/quickstart/
       color: purple
       icon: fa fa-code
 
