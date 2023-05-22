@@ -33,6 +33,12 @@
       color: green
       icon: fa fa-file-alt
 
+    - title: Quick Start Guide
+      intro: Get a quick introduction to use the <i class="metasys"></i> REST API
+      url: /guides/quickstart
+      color: purple
+      icon: fa fa-code
+
     # - title: 'FAQs'
     #   intro: 'See what problems others might be having with <i class="metasys"></i> API v1 (Release 10.0).'
     #   color: 'orange'
