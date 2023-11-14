@@ -15,24 +15,26 @@ release of Metasys.
 > **Note** The REST API is not supported on Metasys for Validated Environments
 > (MVE) sites. Do not attempt to use the REST API on an MVE site.
 
-| API Version |            Metasys 10.0            |            Metasys 10.1            |            Metasys 11.0            |            Metasys 12.0            |
-| ----------- | :--------------------------------: | :--------------------------------: | :--------------------------------: | :--------------------------------: |
-| [v1][]      | <i class='fa fa-check-circle'></i> |    <i class='fa fa-times'></i>     |    <i class='fa fa-times'></i>     |    <i class='fa fa-times'></i>     |
-| [v2][]      |                                    | <i class='fa fa-check-circle'></i> | <i class='fa fa-check-circle'></i> |    <i class='fa fa-check'></i>     |
-| [v3][]      |                                    |                                    | <i class='fa fa-check-circle'></i> |    <i class='fa fa-check'></i>     |
-| [v4][]      |                                    |                                    |                                    | <i class='fa fa-check-circle'></i> |
+| API Version |            Metasys 10.0            |            Metasys 10.1            |            Metasys 11.0            |            Metasys 12.0            |            Metasys 13.0            |
+| ----------- | :--------------------------------: | :--------------------------------: | :--------------------------------: | :--------------------------------: | :--------------------------------: |
+| [v1][]      | <i class='fa fa-check-circle'></i> |                                    |                                    |                                    |                                    |
+| [v2][]      |                                    | <i class='fa fa-check-circle'></i> | <i class='fa fa-check-circle'></i> |    <i class='fa fa-check'></i>     |                                    |
+| [v3][]      |                                    |                                    | <i class='fa fa-check-circle'></i> |    <i class='fa fa-check'></i>     |                                    |
+| [v4][]      |                                    |                                    |                                    | <i class='fa fa-check-circle'></i> |    <i class='fa fa-check'></i>     |
+| [v5][]      |                                    |                                    |                                    |                                    | <i class='fa fa-check-circle'></i> |
 
 <br>**Legend**<br>
 
-- <i class='fa fa-times'></i> - Not available
+- empty cell - API not available
 - <i class='fa fa-check-circle'></i> - Supported
 - <i class='fa fa-check'></i> - Deprecated (supported, but may be removed in a
   future release)
 
-[v1]: /api-landing/api/v1/
-[v2]: /api-landing/api/v2/
-[v3]: /api-landing/api/v3/
-[v4]: /api-landing/api/v4
+[v1]: /api/v1/
+[v2]: /api/v2/
+[v3]: /api/v3/
+[v4]: /api/v4
+[v5]: /api/v5
 
 ## Changelog
 
@@ -42,42 +44,47 @@ The list of changes to the API for each version are listed below.
 
 #### Added Operations
 
-- Lookup object identifier: `GET /objects/identifiers?fqr=`. This replaces
-  `GET /objectIdentifiers?fqr=` which is now deprecated.
-- List all time series (repository): `GET /timeSeries`
-- List trended attributes (repository):
-  `GET /timeSeries/{objectId}/trendedAttributes`
-- Get attribute samples:
-  `GET timeSeries/{objectId}/trendedAttributes/{attributeId}/samples`
-- Batch operations for time series (repository): `POST /timeSeries/batch`
-- Create samples subscription (buffer):
-  `POST /timeSeries/{streamId}/subscriptions`
-- Update samples subscription (buffer):
-  `PUT /timeSeries/streams/{streamId}/subscriptions/{subscriptionId}`
-- Delete trend samples subscription:
-  `DELETE /timeSeries/streams/{streamId}/subscriptions/{subscriptionId}`
+- Objects
+  - Lookup object identifier: `GET /objects/identifiers?fqr=`. This replaces
+    `GET /objectIdentifiers?fqr=` which is now deprecated.
+- Time Series
+  - List all time series (repository): `GET /timeSeries`
+  - List trended attributes (repository):
+    `GET /timeSeries/{objectId}/trendedAttributes`
+  - Get attribute samples:
+    `GET timeSeries/{objectId}/trendedAttributes/{attributeId}/samples`
+  - Batch operations for time series (repository): `POST /timeSeries/batch`
+  - Create samples subscription (buffer):
+    `POST /timeSeries/{streamId}/subscriptions`
+  - Update samples subscription (buffer):
+    `PUT /timeSeries/streams/{streamId}/subscriptions/{subscriptionId}`
+  - Delete trend samples subscription:
+    `DELETE /timeSeries/streams/{streamId}/subscriptions/{subscriptionId}`
 
 #### Deprecated Operations
 
-- Get object id (`GET /objectIdentifiers?fqr=`)
+- Objects
+  - Get object id (`GET /objectIdentifiers?fqr=`)
 
 #### Changed Operations
 
-- Get object attributes with samples:
-  `GET /objects/{objectId}/trendedAttributes` - **Breaking Changes**
-  - Renamed to "List trended attributes (buffer)"
-  - Previously this operation would return information from the historical
-    repository (database). Now it returns data found in the buffer associated
-    with the specified object. To get information contained in the repository
-    use the new operation "List trended attributes (repository)".
-- Get samples for an object attributes:
-  `GET /objects/{objectId}/trendedAttributes/{attributeId}/samples` **Breaking
-  Changes**
-  - Renamed to "Get attribute samples (buffer)"
-  - Previously this operation returned data found in the historical repository
-    (database). Now it returns data found in the buffer associated with the
-    specified object. To get information contained in the repository use the new
-    operation "Get attribute samples (repository)".
+- Objects
+  - Get object attributes with samples:
+    `GET /objects/{objectId}/trendedAttributes` - **Breaking Changes**
+    - Renamed to "List trended attributes (buffer)"
+    - Previously this operation would return information from the historical
+      repository (database). Now it returns data found in the buffer associated
+      with the specified object. To get information contained in the repository
+      use the new operation "List trended attributes (repository)".
+- Time Series
+  - Get samples for an object attributes:
+    `GET /objects/{objectId}/trendedAttributes/{attributeId}/samples` -
+    **Breaking Changes**
+    - Renamed to "Get attribute samples (buffer)"
+    - Previously this operation returned data found in the historical repository
+      (database). Now it returns data found in the buffer associated with the
+      specified object. To get information contained in the repository use the
+      new operation "Get attribute samples (repository)".
 
 #### Removed Operations
 
