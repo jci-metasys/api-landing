@@ -30,11 +30,11 @@ release of Metasys.
 - <i class='fa fa-check'></i> - Deprecated (supported, but may be removed in a
   future release)
 
-[v1]: /api/v1/
-[v2]: /api/v2/
-[v3]: /api/v3/
-[v4]: /api/v4
-[v5]: /api/v5
+[v1]: ../../api/v1/
+[v2]: ../../api/v2/
+[v3]: ../../api/v3/
+[v4]: ../../api/v4
+[v5]: ../../api/v5
 
 ## Changelog
 
