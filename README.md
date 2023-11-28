@@ -2,7 +2,7 @@
 
 [![CircleCI](https://circleci.com/gh/jci-metasys/api-landing.svg?style=svg)](https://circleci.com/gh/jci-metasys/api-landing)
 
-<!-- cSpell:ignore apiaryio automagically -->
+<!-- cSpell:ignore apiaryio automagically test -->
 
 The landing page for the
 [Metasys Server API Documentation](https://jci-metasys.github.io/api-landing)
