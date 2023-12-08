@@ -28,9 +28,9 @@ WORKFLOW_ID=$6
 # preview_comment_url=$(curl --location "https://api.github.com/repos/$ORG/$REPO/issues/$PR/comments" \
 #             -u "$USER:$TOKEN" | jq  '.[] | {body: .body, url: .url} | select(.body | contains("Circle CI Preview Available"))' | jq -r -s '. | first | .url')
 preview_comment_url=$(curl --location "https://api.github.com/repos/$ORG/$REPO/issues/$PR/comments" \
-            -u "$USER:$TOKEN" | jq  '.[] | select(.body | contains("Circle CI Preview"))' | jq -r -s '. | first | .url')
+            -u "$USER:$TOKEN" | jq  '.[] | select(.body | contains("From Circle CI:"))' | jq -r -s '. | first | .url')
 
-preview_comment="Circle CI Preview currently [being generated]($CIRCLE_BUILD_URL)"
+preview_comment="From Circle CI: [a preview is currently being generated]($CIRCLE_BUILD_URL)"
 comment_body="{\"body\": \"$preview_comment\"}"
 
 echo $comment_body
