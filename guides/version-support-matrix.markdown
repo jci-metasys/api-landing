@@ -17,28 +17,84 @@ release of Metasys.
 
 | API Version |             Metasys 10             |            Metasys 10.1            |             Metasys 11             |             Metasys 12             | Metasys 13                         |
 | ----------- | :--------------------------------: | :--------------------------------: | :--------------------------------: | :--------------------------------: | ---------------------------------- |
-| [v1][]      | <i class='fa fa-check-circle'></i> |    <i class='fa fa-times'></i>     |    <i class='fa fa-times'></i>     |    <i class='fa fa-times'></i>     | <i class='fa fa-times'></i>        |
-| [v2][]      |                                    | <i class='fa fa-check-circle'></i> | <i class='fa fa-check-circle'></i> |    <i class='fa fa-check'></i>     | <i class='fa fa-times'></i>        |
-| [v3][]      |                                    |                                    | <i class='fa fa-check-circle'></i> |    <i class='fa fa-check'></i>     | <i class='fa fa-times'></i>        |
+| [v1][]      | <i class='fa fa-check-circle'></i> |                                    |                                    |                                    |                                    |
+| [v2][]      |                                    | <i class='fa fa-check-circle'></i> | <i class='fa fa-check-circle'></i> |    <i class='fa fa-check'></i>     |                                    |
+| [v3][]      |                                    |                                    | <i class='fa fa-check-circle'></i> |    <i class='fa fa-check'></i>     |                                    |
 | [v4][]      |                                    |                                    |                                    | <i class='fa fa-check-circle'></i> | <i class='fa fa-check'></i>        |
 | [v5][]      |                                    |                                    |                                    |                                    | <i class='fa fa-check-circle'></i> |
 
 <br>**Legend**<br>
 
-- <i class='fa fa-times'></i> - Not available
+- empty cell - API not available
 - <i class='fa fa-check-circle'></i> - Supported
 - <i class='fa fa-check'></i> - Deprecated (supported, but may be removed in a
   future release)
 
-[v1]: /api-landing/api/v1/
-[v2]: /api-landing/api/v2/
-[v3]: /api-landing/api/v3/
-[v4]: /api-landing/api/v4
-[v5]: /api-landing/api/v5
+[v1]: ../../api/v1/
+[v2]: ../../api/v2/
+[v3]: ../../api/v3/
+[v4]: ../../api/v4
+[v5]: ../../api/v5
 
 ## Changelog
 
 The list of changes to the API for each version are listed below.
+
+### v5 - 2023-09-30
+
+#### Added Operations
+
+- Objects
+  - Lookup object identifier: `GET /objects/identifiers?fqr=`. This replaces
+    `GET /objectIdentifiers?fqr=` which is now deprecated.
+- Time Series
+  - List all time series (repository): `GET /timeSeries`
+  - List trended attributes (repository):
+    `GET /timeSeries/{objectId}/trendedAttributes`
+  - Get attribute samples:
+    `GET timeSeries/{objectId}/trendedAttributes/{attributeId}/samples`
+  - Batch operations for time series (repository): `POST /timeSeries/batch`
+  - Create samples subscription (buffer):
+    `POST /timeSeries/{streamId}/subscriptions`
+  - Update samples subscription (buffer):
+    `PUT /timeSeries/streams/{streamId}/subscriptions/{subscriptionId}`
+  - Delete trend samples subscription:
+    `DELETE /timeSeries/streams/{streamId}/subscriptions/{subscriptionId}`
+
+#### Deprecated Operations
+
+- Objects
+  - Get object id (`GET /objectIdentifiers?fqr=`)
+
+#### Changed Operations
+
+- Objects
+  - Get object attributes with samples:
+    `GET /objects/{objectId}/trendedAttributes` - **Breaking Changes**
+    - Renamed to "List trended attributes (buffer)"
+    - Previously this operation would return information from the historical
+      repository (database). Now it returns data found in the buffer associated
+      with the specified object. To get information contained in the repository
+      use the new operation "List trended attributes (repository)".
+- Time Series
+  - Get samples for an object attributes:
+    `GET /objects/{objectId}/trendedAttributes/{attributeId}/samples` -
+    **Breaking Changes**
+    - Renamed to "Get attribute samples (buffer)"
+    - Previously this operation returned data found in the historical repository
+      (database). Now it returns data found in the buffer associated with the
+      specified object. To get information contained in the repository use the
+      new operation "Get attribute samples (repository)".
+
+#### Removed Operations
+
+These represent **Breaking Changes**.
+
+- Time Series
+  - Get network device attributes with samples. Use "List trended attributes
+    (repository)" instead.
+  - Get samples for a network device attribute. Use "Get attribute samples
+    (repository)" instead.
 
 ### v4 - 2022-07-10
 
