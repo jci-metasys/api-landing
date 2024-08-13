@@ -53,9 +53,9 @@ The list of changes to the API for each version are listed below.
 #### Deprecated Operations
 
 - Alarms  
-  - Get alarms - (`GET /alarms`)
+  - List all alarms - (`GET /alarms`)
 - Audits
-  - Get audits - (`GET /audits`)
+  - List all audits - (`GET /audits`)
 
 ### v5 - 2023-09-30
 
