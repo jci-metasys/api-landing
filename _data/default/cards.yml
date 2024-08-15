@@ -7,6 +7,12 @@
     #   icon:  'fa fa-paper-plane'
     #   url: 'guides/quickstart/'
 
+    - title: 'REST API v6'
+      intro: 'Browse the documentation of the REST API (version 6).'
+      color: 'blue'
+      icon:  'fa fa-file-alt'
+      url: 'api/v6'
+
     - title: 'REST API v5'
       intro: 'Browse the documentation of the REST API (version 5).'
       color: 'blue'
