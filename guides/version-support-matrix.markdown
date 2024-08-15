@@ -43,7 +43,7 @@ release of Metasys.
 
 The list of changes to the API for each version are listed below.
 
-### v6 - 2024-08-12
+### v6 - 2024-08-15
 
 #### Added Operations
 
@@ -54,9 +54,9 @@ The list of changes to the API for each version are listed below.
 #### Deprecated Operations
 
 - Alarms  
-  - Get alarms - (`GET /alarms`)
+  - List all alarms - (`GET /alarms`)
 - Audits
-  - Get audits - (`GET /audits`)
+  - List all audits - (`GET /audits`)
 
 ### v5 - 2023-09-30
 
