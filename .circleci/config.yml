@@ -77,7 +77,7 @@ jobs:
                   if (urlParts.length < 2) return;
 
                   const last = urlParts[urlParts.length - 1];
-                  if (last == 'v4' || last == 'v5') {
+                  if (last == 'v4' || last == 'v5' || last == 'v6') {
                     e.originalEvent.currentTarget.href = current + ".html";
                     return;
                   }

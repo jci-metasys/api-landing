@@ -15,13 +15,14 @@ release of Metasys.
 > **Note** The REST API is not supported on Metasys for Validated Environments
 > (MVE) sites. Do not attempt to use the REST API on an MVE site.
 
-| API Version |             Metasys 10             |            Metasys 10.1            |             Metasys 11             |             Metasys 12             | Metasys 13                         |
-| ----------- | :--------------------------------: | :--------------------------------: | :--------------------------------: | :--------------------------------: | ---------------------------------- |
-| [v1][]      | <i class='fa fa-check-circle'></i> |                                    |                                    |                                    |                                    |
-| [v2][]      |                                    | <i class='fa fa-check-circle'></i> | <i class='fa fa-check-circle'></i> |    <i class='fa fa-check'></i>     |                                    |
-| [v3][]      |                                    |                                    | <i class='fa fa-check-circle'></i> |    <i class='fa fa-check'></i>     |                                    |
-| [v4][]      |                                    |                                    |                                    | <i class='fa fa-check-circle'></i> | <i class='fa fa-check'></i>        |
-| [v5][]      |                                    |                                    |                                    |                                    | <i class='fa fa-check-circle'></i> |
+| API Version |             Metasys 10             |            Metasys 10.1            |             Metasys 11             |             Metasys 12             | Metasys 13                         | Metasys 14                         |
+| ----------- | :--------------------------------: | :--------------------------------: | :--------------------------------: | :--------------------------------: | ---------------------------------- | ---------------------------------- |
+| [v1][]      | <i class='fa fa-check-circle'></i> |                                    |                                    |                                    |                                    |                                    |
+| [v2][]      |                                    | <i class='fa fa-check-circle'></i> | <i class='fa fa-check-circle'></i> |    <i class='fa fa-check'></i>     |                                    |                                    |
+| [v3][]      |                                    |                                    | <i class='fa fa-check-circle'></i> |    <i class='fa fa-check'></i>     |                                    |                                    |
+| [v4][]      |                                    |                                    |                                    | <i class='fa fa-check-circle'></i> | <i class='fa fa-check'></i>        |                                    |
+| [v5][]      |                                    |                                    |                                    |                                    | <i class='fa fa-check-circle'></i> | <i class='fa fa-check'></i>        |
+| [v6][]      |                                    |                                    |                                    |                                    |                                    | <i class='fa fa-check-circle'></i> |
 
 <br>**Legend**<br>
 
@@ -35,10 +36,30 @@ release of Metasys.
 [v3]: ../../api/v3/
 [v4]: ../../api/v4
 [v5]: ../../api/v5
+[v6]: ../../api/v6
 
 ## Changelog
 
 The list of changes to the API for each version are listed below.
+
+### v6 - 2024-08-12
+
+#### Added Operations
+
+- Time Series
+  - Get trended object (`GET /timeSeries/{objectId}`)
+  - Get trended attribute (`GET /timeSeries/{objectId}/trendedAttributes/{attributeId}`)
+
+#### Removed Operations
+
+These represent **Breaking Changes**.
+
+- Alarms  
+  - List alarms - (`GET /alarms`)
+- Audits
+  - List audits - (`GET /audits`)
+
+The replacement for these endpoints is `GET /activities?activityType=[alarm|audit]`.
 
 ### v5 - 2023-09-30
 
@@ -65,6 +86,10 @@ The list of changes to the API for each version are listed below.
 
 - Objects
   - Get object id (`GET /objectIdentifiers?fqr=`)
+- Alarms  
+  - List alarms - (`GET /alarms`)
+- Audits
+  - List audits - (`GET /audits`)
 
 #### Changed Operations
 
