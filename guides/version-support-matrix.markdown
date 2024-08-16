@@ -47,15 +47,19 @@ The list of changes to the API for each version are listed below.
 #### Added Operations
 
 - Time Series
-  - Get trended object (`/timeSeries/{objectId}`)
-  - Get trended attribute (`/timeSeries/{objectId}/trendedAttributes/{attributeId}`)
+  - Get trended object (`GET /timeSeries/{objectId}`)
+  - Get trended attribute (`GET /timeSeries/{objectId}/trendedAttributes/{attributeId}`)
 
-#### Deprecated Operations
+#### Removed Operations
+
+These represent **Breaking Changes**.
 
 - Alarms  
   - Get alarms - (`GET /alarms`)
 - Audits
   - Get audits - (`GET /audits`)
+
+The replacement for these endpoints is `GET /activities?activityType=[alarm|audit]`.
 
 ### v5 - 2023-09-30
 
@@ -82,6 +86,10 @@ The list of changes to the API for each version are listed below.
 
 - Objects
   - Get object id (`GET /objectIdentifiers?fqr=`)
+- Alarms  
+  - List alarms - (`GET /alarms`)
+- Audits
+  - List audits - (`GET /audits`)
 
 #### Changed Operations
 
