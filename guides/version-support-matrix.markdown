@@ -55,9 +55,9 @@ The list of changes to the API for each version are listed below.
 These represent **Breaking Changes**.
 
 - Alarms  
-  - Get alarms - (`GET /alarms`)
+  - List alarms - (`GET /alarms`)
 - Audits
-  - Get audits - (`GET /audits`)
+  - List audits - (`GET /audits`)
 
 The replacement for these endpoints is `GET /activities?activityType=[alarm|audit]`.
 
