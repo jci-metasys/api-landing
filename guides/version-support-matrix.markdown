@@ -15,7 +15,7 @@ release of Metasys.
 > **Note** The REST API is not supported on Metasys for Validated Environments
 > (MVE) sites. Do not attempt to use the REST API on an MVE site.
 
-| API Version |             Metasys 10             |            Metasys 10.1            |             Metasys 11             |             Metasys 12             | Metasys 13                         | Metasys 14                         |
+| API Version |             Metasys 10             |            Metasys 10.1            |             Metasys 11             |             Metasys 12             | Metasys 13                         | Metasys 14 and 14.1                |
 | ----------- | :--------------------------------: | :--------------------------------: | :--------------------------------: | :--------------------------------: | ---------------------------------- | ---------------------------------- |
 | [v1][]      | <i class='fa fa-check-circle'></i> |                                    |                                    |                                    |                                    |                                    |
 | [v2][]      |                                    | <i class='fa fa-check-circle'></i> | <i class='fa fa-check-circle'></i> |    <i class='fa fa-check'></i>     |                                    |                                    |
@@ -48,18 +48,20 @@ The list of changes to the API for each version are listed below.
 
 - Time Series
   - Get trended object (`GET /timeSeries/{objectId}`)
-  - Get trended attribute (`GET /timeSeries/{objectId}/trendedAttributes/{attributeId}`)
+  - Get trended attribute
+    (`GET /timeSeries/{objectId}/trendedAttributes/{attributeId}`)
 
 #### Removed Operations
 
 These represent **Breaking Changes**.
 
-- Alarms  
+- Alarms
   - List alarms - (`GET /alarms`)
 - Audits
   - List audits - (`GET /audits`)
 
-The replacement for these endpoints is `GET /activities?activityType=[alarm|audit]`.
+The replacement for these endpoints is
+`GET /activities?activityType=[alarm|audit]`.
 
 ### v5 - 2023-09-30
 
@@ -86,7 +88,7 @@ The replacement for these endpoints is `GET /activities?activityType=[alarm|audi
 
 - Objects
   - Get object id (`GET /objectIdentifiers?fqr=`)
-- Alarms  
+- Alarms
   - List alarms - (`GET /alarms`)
 - Audits
   - List audits - (`GET /audits`)
