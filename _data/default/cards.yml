@@ -1,36 +1,33 @@
-- title: "Getting started is easy!"
-  intro: "A guide has been created to give you information on how to quickly access the API and get you on the road to making requests ASAP! You may also access the API documentation and frequently asked questions from here as well."
+- title: "Documentation"
+  intro: "Select your release and/or version of the API to see the available documentation."
   cards:
-    # - title: 'Quickstart'
-    #   intro: 'Learn how to quickly interact with the <i class="metasys"></i> API v1 (Release 10.0).'
-    #   color: 'green'
-    #   icon:  'fa fa-paper-plane'
-    #   url: 'guides/quickstart/'
+    - title: "Metasys 14.1 REST API v6"
+      intro: "Version 6 of the REST API with changes for Metasys 14.1"
+      color: "blue"
+      icon: "fa fa-file-alt"
+      url: "api/v6-14-1"
 
-    - title: "REST API v6"
+    - title: "Metasys 14 REST API v6"
       intro: "Version 6 of the API for Metasys 14"
       color: "blue"
       icon: "fa fa-file-alt"
       url: "api/v6"
 
-    - title: "REST API v5"
-      intro: "Version 5 of the API for Metasys 13 and 14"
+    - title: "Index of All Releases"
+      intro: "See a list of all releases of the API"
       color: "blue"
-      icon: "fa fa-file-alt"
-      url: "api/v5"
+      icon: "fa fa-file"
+      url: "guides/all-api-versions/"
 
-    - title: "REST API v4"
-      intro: "Version 4 of the API for Metasys 12 and 13"
-      color: "blue"
-      icon: "fa fa-file-alt"
-      url: "api/v4"
+    # - title: 'FAQs'
+    #   intro: 'See what problems others might be having with <i class="metasys"></i> API v1 (Release 10.0).'
+    #   color: 'orange'
+    #   icon:  'fa fa-life-ring'
+    #   url: 'faqs/'
 
-    - title: "Legacy REST API"
-      intro: "Versions 1-3 of the API for older releases of Metasys"
-      color: "blue"
-      icon: "fa fa-file-alt"
-      url: "api/v3/"
-
+- title: "References"
+  intro: "Reference information about the API"
+  cards:
     - title: "Version Support Matrix"
       intro: |
         See which versions of the REST API are available for your release of Metasys and
@@ -43,16 +40,10 @@
       intro: "See guidelines and rate limits for polling and streaming attribute values."
       url: "/guides/attribute-access-guidelines/"
       color: green
-      icon: fa fa-file-alt
+      icon: fa fa-file
 
-    # - title: 'FAQs'
-    #   intro: 'See what problems others might be having with <i class="metasys"></i> API v1 (Release 10.0).'
-    #   color: 'orange'
-    #   icon:  'fa fa-life-ring'
-    #   url: 'faqs/'
-
-- title: "Example Applications"
-  intro: "We have constructed some example applications below to help you see the ways in which you may interact with the API."
+- title: "SDK"
+  intro: "Client Libraries for the API"
   cards:
     - title: "REST Client for .NET"
       intro: 'A .NET library for consuming the <i class="metasys"></i> REST API. The repository includes an extensive README and sample apps.'
