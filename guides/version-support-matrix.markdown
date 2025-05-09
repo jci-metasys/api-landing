@@ -42,7 +42,24 @@ release of Metasys.
 
 The list of changes to the API for each version are listed below.
 
-### v6 - 2024-08-12
+### v6 (for 14.1) -
+
+No breaking changes were made.
+
+#### Modified Operations
+
+- Objects
+
+  - The `object.values.notification` and `object.values.update` events now
+    include a `subscriptionId` which identifies the subscription the event is
+    associated with.
+
+- Alarms
+  - On BACnet AWS sites, alarms may contain an additional property named
+    `bacnet`, and its value is an object that contains `deviceId`, `objectId`,
+    `notificationClassId`, `timestamp` and `notifyType`.
+
+### v6 (for 14.0) - 2024-08-12
 
 #### Added Operations
 
