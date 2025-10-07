@@ -1,17 +1,16 @@
 - title: "Documentation"
   intro: "Select your release and/or version of the API to see the available documentation."
   cards:
+    - title: "Metasys 15 REST API v6"
+      intro: "Version 6 of the API with changes for Metasys 15"
+      color: "blue"
+      icon: "fa fa-file-alt"
+      url: "api/v6-15"
     - title: "Metasys 14.1 REST API v6"
       intro: "Version 6 of the REST API with changes for Metasys 14.1"
       color: "blue"
       icon: "fa fa-file-alt"
       url: "api/v6-14-1"
-
-    - title: "Metasys 14 REST API v6"
-      intro: "Version 6 of the API for Metasys 14"
-      color: "blue"
-      icon: "fa fa-file-alt"
-      url: "api/v6"
 
     - title: "Index of All Releases"
       intro: "See a list of all releases of the API"
