@@ -7,7 +7,7 @@ color: green
 icon: fa fa-table
 ---
 
-<!-- markdownlint-disable no-duplicate-heading -->
+<!-- markdownlint-disable no-duplicate-heading no-inline-html no-emphasis-as-heading link-image-reference-definitions -->
 
 The following table shows which versions of the REST API are available for each
 release of Metasys.
@@ -15,14 +15,111 @@ release of Metasys.
 > **Note** The REST API is not supported on Metasys for Validated Environments
 > (MVE) sites. Do not attempt to use the REST API on an MVE site.
 
-| API Version |             Metasys 10             |            Metasys 10.1            |             Metasys 11             |             Metasys 12             | Metasys 13                         | Metasys 14 and 14.1                |
-| ----------- | :--------------------------------: | :--------------------------------: | :--------------------------------: | :--------------------------------: | ---------------------------------- | ---------------------------------- |
-| [v1][]      | <i class='fa fa-check-circle'></i> |                                    |                                    |                                    |                                    |                                    |
-| [v2][]      |                                    | <i class='fa fa-check-circle'></i> | <i class='fa fa-check-circle'></i> |    <i class='fa fa-check'></i>     |                                    |                                    |
-| [v3][]      |                                    |                                    | <i class='fa fa-check-circle'></i> |    <i class='fa fa-check'></i>     |                                    |                                    |
-| [v4][]      |                                    |                                    |                                    | <i class='fa fa-check-circle'></i> | <i class='fa fa-check'></i>        |                                    |
-| [v5][]      |                                    |                                    |                                    |                                    | <i class='fa fa-check-circle'></i> | <i class='fa fa-check'></i>        |
-| [v6][]      |                                    |                                    |                                    |                                    |                                    | <i class='fa fa-check-circle'></i> |
+<table style="text-align: center; width: 100%;">
+  <thead>
+    <tr>
+      <th style="text-align: center;">API Version</th>
+      <th style="text-align: center;">10</th>
+      <th style="text-align: center;">10.1</th>
+      <th style="text-align: center;">11</th>
+      <th style="text-align: center;">12</th>
+      <th style="text-align: center;">13</th>
+      <th style="text-align: center;">14</th>
+      <th style="text-align: center;">14.1</th>
+      <th style="text-align: center;">15</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center;"><strong><a href="../../api/v1/">v1</a></strong></td>
+      <td style="text-align: center;"><i class='fa fa-check-circle'></i></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+    </tr>
+    <tr>
+      <td style="text-align: center;"><strong><a href="../../api/v2/">v2</a></strong></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"><i class='fa fa-check-circle'></i></td>
+      <td style="text-align: center;"><i class='fa fa-check-circle'></i></td>
+      <td style="text-align: center;"><i class='fa fa-check'></i></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+    </tr>
+    <tr>
+      <td style="text-align: center;"><strong><a href="../../api/v3/">v3</a></strong></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"><i class='fa fa-check-circle'></i></td>
+      <td style="text-align: center;"><i class='fa fa-check'></i></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+    </tr>
+    <tr>
+      <td style="text-align: center;"><strong><a href="../../api/v4">v4</a></strong></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"><i class='fa fa-check-circle'></i></td>
+      <td style="text-align: center;"><i class='fa fa-check'></i></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+    </tr>
+    <tr>
+      <td style="text-align: center;"><strong><a href="../../api/v5">v5</a></strong></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"><i class='fa fa-check-circle'></i></td>
+      <td style="text-align: center;"><i class='fa fa-check'></i></td>
+      <td style="text-align: center;"><i class='fa fa-check'></i></td>
+      <td style="text-align: center;"></td>
+    </tr>
+    <tr>
+      <td style="text-align: center;"><strong><a href="../../api/v6">v6</a></strong></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"><i class='fa fa-check-circle'></i></td>
+      <td style="text-align: center;"><i class='fa fa-check-circle'></i></td>
+      <td style="text-align: center;"><i class='fa fa-check-circle'></i></td>
+    </tr>
+    <tr>
+      <td style="text-align: center;"><strong><a href="../../api/v6-14-1">v6 for 14.1</a></strong></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"><i class='fa fa-check-circle'></i></td>
+      <td style="text-align: center;"><i class='fa fa-check-circle'></i></td>
+    </tr>
+    <tr>
+      <td style="text-align: center;"><strong><a href="../../api/v6-15">v6 for 15</a></strong></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"><i class='fa fa-check-circle'></i></td>
+    </tr>
+  </tbody>
+</table>
 
 <br>**Legend**<br>
 
@@ -31,18 +128,69 @@ release of Metasys.
 - <i class='fa fa-check'></i> - Deprecated (supported, but may be removed in a
   future release)
 
-[v1]: ../../api/v1/
-[v2]: ../../api/v2/
-[v3]: ../../api/v3/
-[v4]: ../../api/v4
-[v5]: ../../api/v5
-[v6]: ../../api/v6
-
 ## Changelog
 
-The list of changes to the API for each version are listed below.
+The changes for each release of the API are listed below.
 
-### v6 (for 14.1) -
+### v6 (for 15.0) - 2025-10-6
+
+No breaking changes were made.
+
+#### Deprecated Operations
+
+Deprecated operations continue to work but you should switch to the recommended
+alternatives to avoid breakages in the future.
+
+- Equipment
+  - Get equipment instances (`GET /equipment`) is replaced by _Get equipment
+    tree_.
+  - Get equipment served by equipment (`GET /equipment/{equipmentId}/equipment`)
+    is replaced by _Get served by equipment_.
+  - Get equipment serving a space (`GET /spaces/{spaceId}/equipment`) is
+    replaced by _Get equipment serving a space_
+    (`GET /spaces/{spaceId}/servingEquipment`)
+- Spaces
+  - Get spaces (`GET /spaces`) is replaced by _Get spaces tree_.
+  - Get space children (`GET /spaces/{spaceId}/spaces`) is replaced by _Get
+    spaces subtree_.
+
+#### Changed Operations
+
+- Audits
+  - Operations that return audits now may include the `signature` property.
+- Objects
+  - Get attributes (`GET /attributes`) now supports an `attributeFilter` query
+    parameter.
+- Network Devices
+  - Get network devices (`GET /networkDevices`) now supports the
+    `includeComplete` query parameter.
+  - List network devices hosting an equipment instance
+    (`GET /equipment/{equipmentId}/networkDevices`) now supports the
+    `classification` query parameter.
+  - The responses to operations that return network devices may now include
+    `allowHttp`, `jciIpCommMode` and `deviceIpAddress` properties.
+- Equipment
+  - The responses to operations that return equipment instances may now include
+    `hasUpstreamEquipment`, `equipmentDefinitionId`, `description`, `category`,
+    `subsystemCategory` and `graphicAlias` properties.
+  - List equipment points (`GET /equipment/{equipmentId}/points`) response now
+    includes `objectReference` property.
+- Spaces
+  - The responses to operations that return spaces may now include
+    `description`, `area` and `areaUnits` properties.
+
+#### New Operations
+
+- Equipment
+  - Get equipment tree (`GET /equipment/tree`)
+  - Get equipment subtree (`GET /equipment/tree/{objectId}`)
+  - Get served by equipment (`GET equipment/{equipmentId}/servedEquipment`)
+  - Get equipment serving a space (`GET /spaces/{spaceId}/servingEquipment`)
+- Spaces
+  - Get spaces tree (`GET /spaces/tree`)
+  - Get spaces subtree (`GET /spaces/tree/{objectId}`)
+
+### v6 (for 14.1) - 2025-05-09
 
 No breaking changes were made.
 
