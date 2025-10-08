@@ -1,8 +1,16 @@
+- name: '<i class="metasys"></i> API v6 (15.0)'
+  url: "api/v6-15"
+- name: '<i class="metasys"></i> API v6 (14.1)'
+  url: "api/v6-14-1"
+- name: '<i class="metasys"></i> API v6 (14.0)'
+  url: "api/v6"
+- name: '<i class="metasys"></i> API v5'
+  url: "api/v5"
 - name: '<i class="metasys"></i> API v4'
-  url: 'api/v4'
+  url: "api/v4"
 - name: '<i class="metasys"></i> API v3'
-  url: 'api/v3'
+  url: "api/v3"
 - name: '<i class="metasys"></i> API v2'
-  url: 'api/v2'
+  url: "api/v2"
 - name: '<i class="metasys"></i> API v1'
-  url: 'api/v1'
+  url: "api/v1"
