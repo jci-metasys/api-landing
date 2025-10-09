@@ -277,6 +277,10 @@ The replacement for these endpoints is
       (database). Now it returns data found in the buffer associated with the
       specified object. To get information contained in the repository use the
       new operation "Get attribute samples (repository)".
+- Enums
+  - Get enumeration (`GET /schemas/enum/{enumId}`) - **Breaking Changes**
+    - The members of the set are no longer wrapped inside of an `allOf`. This
+      fixes a defect in the original implementation.
 
 #### Removed Operations
 
