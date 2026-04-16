@@ -65,6 +65,10 @@ jobs:
         # NOTE: Update the version list here whenever a new API version file is
         # added to api/ (e.g. add 'v6-16' when api/v6-16.html is created).
         run: |
+          if [ ! -f "_site/assets/js/main.js" ]; then
+            echo "Error: _site/assets/js/main.js not found — cannot append preview shim"
+            exit 1
+          fi
           cat >> _site/assets/js/main.js <<'JSEOF'
 
           $('a').on('click', function(e) {
@@ -107,6 +111,7 @@ jobs:
         run: |
           PREVIEW_URL="https://jci-metasys.github.io/api-landing/pr-preview/pr-${{ github.event.pull_request.number }}/"
           echo "Waiting for preview to be live at $PREVIEW_URL..."
+          HTTP_STATUS="000"
           for i in $(seq 1 24); do
             HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$PREVIEW_URL")
             echo "  attempt $i/24: HTTP $HTTP_STATUS"
@@ -116,6 +121,10 @@ jobs:
             fi
             sleep 10
           done
+          if [[ "$HTTP_STATUS" != "200" ]]; then
+            echo "Error: preview did not become available after 240 seconds (final status: $HTTP_STATUS)"
+            exit 1
+          fi
 
       - name: Update comment with preview URL
         uses: marocchino/sticky-pull-request-comment@v2
@@ -139,11 +148,15 @@ jobs:
       pull-requests: write
 
     steps:
+      - name: Wait for any in-flight deployments to settle
+        run: sleep 15
+
       - name: Remove preview directory from gh-pages branch
         env:
           PR_NUMBER: ${{ github.event.pull_request.number }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          set -euo pipefail
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
