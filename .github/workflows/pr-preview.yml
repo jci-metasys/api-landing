@@ -92,16 +92,26 @@ jobs:
           # keep_files: true leaves other PR previews and the main site intact.
           keep_files: true
 
+      - name: Update comment — waiting for deployment
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: pr-preview
+          message: |
+            ## ⏳ Deploying Site Preview
+
+            Build complete — waiting for GitHub Pages to finish deploying...
+
+            > Built from commit ${{ github.event.pull_request.head.sha }}
+
       - name: Wait for GitHub Pages deployment
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo "Waiting for GitHub Pages to finish deploying..."
-          for i in $(seq 1 30); do
-            STATUS=$(gh api "/repos/${{ github.repository }}/pages/builds/latest" -q '.status' 2>/dev/null || echo "unknown")
-            echo "  attempt $i/30: $STATUS"
-            if [[ "$STATUS" == "built" ]]; then
-              echo "Pages deployment complete."
+          PREVIEW_URL="https://jci-metasys.github.io/api-landing/pr-preview/pr-${{ github.event.pull_request.number }}/"
+          echo "Waiting for preview to be live at $PREVIEW_URL..."
+          for i in $(seq 1 24); do
+            HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$PREVIEW_URL")
+            echo "  attempt $i/24: HTTP $HTTP_STATUS"
+            if [[ "$HTTP_STATUS" == "200" ]]; then
+              echo "Preview is live."
               break
             fi
             sleep 10
