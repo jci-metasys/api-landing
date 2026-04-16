@@ -93,22 +93,14 @@ jobs:
           keep_files: true
 
       - name: Wait for GitHub Pages deployment
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo "Waiting for GitHub Pages to finish deploying..."
-          # Brief pause so GitHub has time to register the new workflow run
-          sleep 10
+          PREVIEW_URL="https://jci-metasys.github.io/api-landing/pr-preview/pr-${{ github.event.pull_request.number }}/"
+          echo "Waiting for preview to be live at $PREVIEW_URL..."
           for i in $(seq 1 24); do
-            STATUS=$(gh run list \
-              --repo "${{ github.repository }}" \
-              --workflow "pages build and deployment" \
-              --limit 1 \
-              --json status \
-              --jq '.[0].status' 2>/dev/null || echo "unknown")
-            echo "  attempt $i/24: $STATUS"
-            if [[ "$STATUS" == "completed" ]]; then
-              echo "GitHub Pages deployment complete."
+            HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$PREVIEW_URL")
+            echo "  attempt $i/24: HTTP $HTTP_STATUS"
+            if [[ "$HTTP_STATUS" == "200" ]]; then
+              echo "Preview is live."
               break
             fi
             sleep 10
