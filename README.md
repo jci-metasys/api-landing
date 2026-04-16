@@ -1,6 +1,6 @@
 # Metasys API Landing Page
 
-[![CircleCI](https://circleci.com/gh/jci-metasys/api-landing.svg?style=svg)](https://circleci.com/gh/jci-metasys/api-landing)
+[![Deploy to GitHub Pages](https://github.com/jci-metasys/api-landing/actions/workflows/deploy.yml/badge.svg)](https://github.com/jci-metasys/api-landing/actions/workflows/deploy.yml)
 
 <!-- cSpell:ignore apiaryio automagically test -->
 
@@ -11,11 +11,10 @@ The landing page for the
 
 ### Pull Requests
 
-When a pull request is submitted, CircleCI will automagically generate a full
-site preview which can be shown to reviewers before merging in the changes.
-
-The preview can be accessed via the "Artifacts" tab when viewing the build in
-CircleCI and clicking on the `site-preview/index.html` file.
+When a pull request is opened or updated, a GitHub Actions workflow
+automatically builds a full site preview and posts a comment on the PR with a
+direct link to browse it. The comment updates as new commits are pushed, and
+the preview is cleaned up when the PR is closed.
 
 ## Previewing Locally
 
@@ -121,36 +120,26 @@ was installed using `install-ruby`.
 
 ## Documentation on PR Preview Builds
 
-We use Circle CI for PR Preview Builds rather than GitHub Actions. This is
-partially for legacy reasons (GitHub Actions didn't exist at the time this repo
-was created). But it's also because GitHub doesn't have the type of artifacts we
-want. With Circle CI we can up load the entire preview site as individual files.
-With GitHub Actions the pre-built site is zipped up into a single downloadable
-artifact&mdash;which makes it impossible to link to individual files.
+PR previews are built and deployed by the GitHub Actions workflow
+`.github/workflows/pr-preview.yml`. Here is how it works:
 
-Circle CI Builds are triggered every time a branch changes. But we only want the
-build to run as part of a PR. At the time of writing PR triggers did not exist
-on Circle CI. See [Circle CI Triggers Overview][triggers].
+1. When a PR is opened, updated, or reopened, the workflow posts a "building…"
+   comment on the PR, then builds the Jekyll site with a config override that
+   points the `url` and `baseurl` at the preview's subdirectory on the
+   `gh-pages` branch.
+2. A small JavaScript shim is appended to `_site/assets/js/main.js` to fix
+   extension-less links (e.g. `/api/v6` → `/api/v6.html`). GitHub Pages
+   handles these via content negotiation on the live site, but the static
+   preview directory does not. **When a new API version file is added to
+   `api/`, update the version list in this shim** (search for `v6-14-1` in
+   `pr-preview.yml`).
+3. The built site is pushed to the `gh-pages` branch under
+   `pr-preview/pr-<number>/`.
+4. The PR comment is updated with a direct link to the preview.
+5. When the PR is closed or merged, the preview directory is removed from
+   `gh-pages` and the comment is updated.
 
-Our preview build is intended to help as part of a PR, so the build exits
-immediately if it determines there is no PR associated with the branch.
-
-We use a separate GitHub action that is triggered when a PR is opened or
-reopened. It then uses the [Circle CI Pipeline Trigger API][pipeline] to run the
-build.
-
-When the Circle CI build runs, it immediately checks the PR for any previous
-comments from itself. If none are found, then a new commit is added to the PR
-that informs users that "Circle CI Preview is being generated" and includes a
-link to the build. If a previous comment is found, then that commit is modified
-to state that a "Circle CI Preview is being generated".
-
-When the build is completed and the artifacts are uploaded, then the job looks
-for it's previous commit and changes the body to say "Circle CI Preview
-Available" with a link to the preview site.
+Preview URLs follow the pattern:
+`https://jci-metasys.github.io/api-landing/pr-preview/pr-<number>/`
 
 [guides]: https://jekyllrb.com/docs/installation/#guides
-[triggers]: https://circleci.com/docs/triggers-overview/
-
-<!-- prettier-ignore -->
-[pipeline]: https://circleci.com/docs/triggers-overview/#run-a-pipeline-using-the-api
