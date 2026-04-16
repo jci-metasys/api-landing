@@ -97,11 +97,18 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo "Waiting for GitHub Pages to finish deploying..."
-          for i in $(seq 1 30); do
-            STATUS=$(gh api "/repos/${{ github.repository }}/pages/builds/latest" -q '.status' 2>/dev/null || echo "unknown")
-            echo "  attempt $i/30: $STATUS"
-            if [[ "$STATUS" == "built" ]]; then
-              echo "Pages deployment complete."
+          # Brief pause so GitHub has time to register the new workflow run
+          sleep 10
+          for i in $(seq 1 24); do
+            STATUS=$(gh run list \
+              --repo "${{ github.repository }}" \
+              --workflow "pages build and deployment" \
+              --limit 1 \
+              --json status \
+              --jq '.[0].status' 2>/dev/null || echo "unknown")
+            echo "  attempt $i/24: $STATUS"
+            if [[ "$STATUS" == "completed" ]]; then
+              echo "GitHub Pages deployment complete."
               break
             fi
             sleep 10
