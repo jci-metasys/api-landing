@@ -92,6 +92,21 @@ jobs:
           # keep_files: true leaves other PR previews and the main site intact.
           keep_files: true
 
+      - name: Wait for GitHub Pages deployment
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "Waiting for GitHub Pages to finish deploying..."
+          for i in $(seq 1 30); do
+            STATUS=$(gh api "/repos/${{ github.repository }}/pages/builds/latest" -q '.status' 2>/dev/null || echo "unknown")
+            echo "  attempt $i/30: $STATUS"
+            if [[ "$STATUS" == "built" ]]; then
+              echo "Pages deployment complete."
+              break
+            fi
+            sleep 10
+          done
+
       - name: Update comment with preview URL
         uses: marocchino/sticky-pull-request-comment@v2
         with:
