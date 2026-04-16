@@ -92,6 +92,17 @@ jobs:
           # keep_files: true leaves other PR previews and the main site intact.
           keep_files: true
 
+      - name: Update comment — waiting for deployment
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: pr-preview
+          message: |
+            ## ⏳ Deploying Site Preview
+
+            Build complete — waiting for GitHub Pages to finish deploying...
+
+            > Built from commit ${{ github.event.pull_request.head.sha }}
+
       - name: Wait for GitHub Pages deployment
         run: |
           PREVIEW_URL="https://jci-metasys.github.io/api-landing/pr-preview/pr-${{ github.event.pull_request.number }}/"
