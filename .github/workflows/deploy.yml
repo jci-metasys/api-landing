@@ -22,6 +22,21 @@ jobs:
         with:
           submodules: true
 
+      - name: Normalize deploy vars
+        id: deploy_vars
+        env:
+          JEKYLL_URL: ${{ vars.JEKYLL_URL }}
+          JEKYLL_BASEURL: ${{ vars.JEKYLL_BASEURL }}
+        run: |
+          URL="${JEKYLL_URL:-https://jci-metasys.github.io}"
+          BASE="${JEKYLL_BASEURL:-/api-landing}"
+          URL="${URL%/}"
+          BASE="${BASE%/}"
+          [[ -n "${BASE}" && "${BASE}" != /* ]] && BASE="/${BASE}"   # ensure leading slash
+          [[ -n "${BASE}" ]] && BASE="${BASE}/"                       # restore trailing slash for Liquid prepend
+          echo "url=${URL}" >> "$GITHUB_OUTPUT"
+          echo "baseurl=${BASE}" >> "$GITHUB_OUTPUT"
+
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
@@ -29,13 +44,31 @@ jobs:
           bundler-cache: true
 
       - name: Build site
-        run: bundle exec jekyll build
+        run: |
+          cat > _config-deploy.yml <<EOF
+          url: "${{ steps.deploy_vars.outputs.url }}"
+          baseurl: "${{ steps.deploy_vars.outputs.baseurl }}"
+          EOF
+          bundle exec jekyll build --config _config.yml,_config-deploy.yml
 
       - name: Deploy to gh-pages branch
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site
-          # keep_files: true preserves pr-preview/ subdirectories so active
-          # PR previews aren't wiped on every main-branch deployment.
-          keep_files: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          git clone --branch gh-pages --single-branch \
+            "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git" \
+            gh-pages-checkout
+
+          cd gh-pages-checkout
+          # .nojekyll prevents GitHub Pages from re-running Jekyll on built output
+          touch .nojekyll
+          # Copy new site over existing files; pr-preview/ is preserved since it
+          # is not in _site/ and cp does not delete files we aren't copying.
+          cp -r ../_site/. ./
+          git add .
+          git diff --cached --quiet || git commit -m "chore: deploy site from ${{ github.sha }}"
+          git push

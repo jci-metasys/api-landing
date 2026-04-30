@@ -38,6 +38,21 @@ jobs:
         with:
           submodules: true
 
+      - name: Normalize preview vars
+        id: preview_vars
+        env:
+          JEKYLL_URL: ${{ vars.JEKYLL_URL }}
+          JEKYLL_BASEURL: ${{ vars.JEKYLL_BASEURL }}
+        run: |
+          URL="${JEKYLL_URL:-https://jci-metasys.github.io}"
+          BASE="${JEKYLL_BASEURL:-/api-landing}"
+          URL="${URL%/}"                             # strip trailing slash
+          BASE="${BASE%/}"                           # strip trailing slash
+          [[ -n "${BASE}" && "${BASE}" != /* ]] && BASE="/${BASE}"   # ensure leading slash (guard empty)
+          echo "url=${URL}" >> "$GITHUB_OUTPUT"
+          echo "baseurl=${BASE}" >> "$GITHUB_OUTPUT"
+          echo "preview_url=${URL}${BASE}/pr-preview/pr-${{ github.event.pull_request.number }}/" >> "$GITHUB_OUTPUT"
+
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
@@ -49,8 +64,8 @@ jobs:
           PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
           cat > _config-preview.yml <<EOF
-          url: "https://jci-metasys.github.io"
-          baseurl: "/api-landing/pr-preview/pr-${PR_NUMBER}/"
+          url: "${{ steps.preview_vars.outputs.url }}"
+          baseurl: "${{ steps.preview_vars.outputs.baseurl }}/pr-preview/pr-${PR_NUMBER}/"
           EOF
 
       - name: Build site
@@ -91,13 +106,26 @@ jobs:
           JSEOF
 
       - name: Deploy preview to gh-pages branch
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site
-          destination_dir: pr-preview/pr-${{ github.event.pull_request.number }}
-          # keep_files: true leaves other PR previews and the main site intact.
-          keep_files: true
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          git clone --branch gh-pages --single-branch \
+            "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git" \
+            gh-pages-checkout
+
+          cd gh-pages-checkout
+          rm -rf "pr-preview/pr-${PR_NUMBER}"
+          mkdir -p "pr-preview/pr-${PR_NUMBER}"
+          cp -r ../_site/. "pr-preview/pr-${PR_NUMBER}/"
+
+          git add "pr-preview/pr-${PR_NUMBER}"
+          git commit -m "chore: deploy preview for PR #${PR_NUMBER}"
+          git push
 
       - name: Update comment — waiting for deployment
         uses: marocchino/sticky-pull-request-comment@v3
@@ -113,7 +141,7 @@ jobs:
       - name: Wait for GitHub Pages deployment
         run: |
           EXPECTED_SHA="${{ github.event.pull_request.head.sha }}"
-          SENTINEL_URL="https://jci-metasys.github.io/api-landing/pr-preview/pr-${{ github.event.pull_request.number }}/_build_sha.txt"
+          SENTINEL_URL="${{ steps.preview_vars.outputs.preview_url }}_build_sha.txt"
           echo "Waiting for sentinel at $SENTINEL_URL to contain $EXPECTED_SHA..."
           for i in $(seq 1 24); do
             DEPLOYED_SHA=$(curl -sf "$SENTINEL_URL" | tr -d '[:space:]' || echo "not_found")
@@ -134,7 +162,7 @@ jobs:
           message: |
             ## ✅ Site Preview Ready
 
-            **[Open Preview →](https://jci-metasys.github.io/api-landing/pr-preview/pr-${{ github.event.pull_request.number }}/)**
+            **[Open Preview →](${{ steps.preview_vars.outputs.preview_url }})**
 
             > Built from commit ${{ github.event.pull_request.head.sha }}
 
