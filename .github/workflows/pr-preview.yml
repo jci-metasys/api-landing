@@ -23,7 +23,7 @@ jobs:
 
     steps:
       - name: Post "building" comment
-        uses: marocchino/sticky-pull-request-comment@v2
+        uses: marocchino/sticky-pull-request-comment@v3
         with:
           header: pr-preview
           message: |
@@ -100,7 +100,7 @@ jobs:
           keep_files: true
 
       - name: Update comment — waiting for deployment
-        uses: marocchino/sticky-pull-request-comment@v2
+        uses: marocchino/sticky-pull-request-comment@v3
         with:
           header: pr-preview
           message: |
@@ -128,7 +128,7 @@ jobs:
           exit 1
 
       - name: Update comment with preview URL
-        uses: marocchino/sticky-pull-request-comment@v2
+        uses: marocchino/sticky-pull-request-comment@v3
         with:
           header: pr-preview
           message: |
@@ -177,7 +177,7 @@ jobs:
           fi
 
       - name: Update comment to reflect removal
-        uses: marocchino/sticky-pull-request-comment@v2
+        uses: marocchino/sticky-pull-request-comment@v3
         with:
           header: pr-preview
           message: |
