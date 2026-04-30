@@ -29,11 +29,16 @@
   cards:
     - title: "Version Support Matrix"
       intro: |
-        See which versions of the REST API are available for your release of Metasys and
-        browse the changelog for each version.
+        See which versions of the REST API are available for your release of Metasys.
       color: "blue"
       icon: "fa fa-table"
       url: "guides/version-support-matrix/"
+
+    - title: "API Changelog"
+      intro: "Browse the history of changes, additions, and breaking changes for each API version."
+      color: "blue"
+      icon: "fa fa-list"
+      url: "guides/api-changelog/"
 
     - title: "Guidelines for Reading Attributes"
       intro: "See guidelines and rate limits for polling and streaming attribute values."

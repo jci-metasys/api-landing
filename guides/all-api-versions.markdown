@@ -30,5 +30,5 @@ documentation for your release of Metasys.
 - [Version 2 for Metasys 10.1, 11 and 12](../../api/v2/)
 - [Version 1 for Metasys 10](../../api/v1/)
 
-See also the [Version Support Matrix](../version-support-matrix) which includes
-a Changelog.
+See also the [Version Support Matrix](../version-support-matrix) and the
+[API Changelog](../api-changelog) for a full history of API changes.
