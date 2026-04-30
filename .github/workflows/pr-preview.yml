@@ -56,6 +56,9 @@ jobs:
       - name: Build site
         run: bundle exec jekyll build --config _config.yml,_config-preview.yml
 
+      - name: Write build sentinel
+        run: echo "${{ github.event.pull_request.head.sha }}" > _site/_build_sha.txt
+
       - name: Fix extension-less links for static preview hosting
         # GitHub Pages handles extension-less URLs via content negotiation, but
         # the static preview directory does not. This shim catches clicks on
@@ -109,22 +112,20 @@ jobs:
 
       - name: Wait for GitHub Pages deployment
         run: |
-          PREVIEW_URL="https://jci-metasys.github.io/api-landing/pr-preview/pr-${{ github.event.pull_request.number }}/"
-          echo "Waiting for preview to be live at $PREVIEW_URL..."
-          HTTP_STATUS="000"
+          EXPECTED_SHA="${{ github.event.pull_request.head.sha }}"
+          SENTINEL_URL="https://jci-metasys.github.io/api-landing/pr-preview/pr-${{ github.event.pull_request.number }}/_build_sha.txt"
+          echo "Waiting for sentinel at $SENTINEL_URL to contain $EXPECTED_SHA..."
           for i in $(seq 1 24); do
-            HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$PREVIEW_URL")
-            echo "  attempt $i/24: HTTP $HTTP_STATUS"
-            if [[ "$HTTP_STATUS" == "200" ]]; then
-              echo "Preview is live."
-              break
+            DEPLOYED_SHA=$(curl -sf "$SENTINEL_URL" | tr -d '[:space:]' || echo "not_found")
+            echo "  attempt $i/24: got '$DEPLOYED_SHA'"
+            if [[ "$DEPLOYED_SHA" == "$EXPECTED_SHA" ]]; then
+              echo "Correct build is live."
+              exit 0
             fi
             sleep 10
           done
-          if [[ "$HTTP_STATUS" != "200" ]]; then
-            echo "Error: preview did not become available after 240 seconds (final status: $HTTP_STATUS)"
-            exit 1
-          fi
+          echo "Error: preview did not serve the expected build after 240 seconds"
+          exit 1
 
       - name: Update comment with preview URL
         uses: marocchino/sticky-pull-request-comment@v2
