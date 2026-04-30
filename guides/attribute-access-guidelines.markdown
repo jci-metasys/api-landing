@@ -3,7 +3,7 @@ title: "Guidelines for Accessing Attribute Values"
 permalink: /guides/attribute-access-guidelines/
 group: versions
 layout: post
-color: green
+color: blue
 icon: fa fa-file-alt
 ---
 

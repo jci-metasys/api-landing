@@ -3,7 +3,7 @@ title: 'Version Support Matrix and Changelog'
 permalink: /guides/version-support-matrix/
 group: versions
 layout: post
-color: green
+color: blue
 icon: fa fa-table
 ---
 

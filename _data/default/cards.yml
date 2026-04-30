@@ -31,14 +31,14 @@
       intro: |
         See which versions of the REST API are available for your release of Metasys and
         browse the changelog for each version.
-      color: "green"
+      color: "blue"
       icon: "fa fa-table"
       url: "guides/version-support-matrix/"
 
     - title: "Guidelines for Reading Attributes"
       intro: "See guidelines and rate limits for polling and streaming attribute values."
       url: "/guides/attribute-access-guidelines/"
-      color: green
+      color: blue
       icon: fa fa-file
 
 - title: "SDK"
