@@ -1,1 +1,1 @@
-Sitemap: /pr-preview/pr-157/sitemap.xml
+Sitemap: https://jci-metasys.github.io/api-landing/pr-preview/pr-157/sitemap.xml
