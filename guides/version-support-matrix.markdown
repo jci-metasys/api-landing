@@ -216,6 +216,14 @@ No breaking changes were made.
   - Get trended attribute
     (`GET /timeSeries/{objectId}/trendedAttributes/{attributeId}`)
 
+#### Changed Operations
+
+- Objects
+  - Send Command (`PUT /objects/{objectId}/commands/{commandId}`). On success,
+    this operation now returns `202 (Accepted)` instead of `200 (OK)`, as it
+    better reflects the semantics of this operation. As such, there is no longer
+    any response body. This is a potentially **breaking change**.
+
 #### Removed Operations
 
 These represent **Breaking Changes**.
