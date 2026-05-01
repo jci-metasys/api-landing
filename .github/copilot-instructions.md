@@ -20,10 +20,10 @@ This is a Jekyll-based GitHub Pages documentation site for the Metasys® REST AP
 ```bash
 bundle exec jekyll build          # production build
 bundle exec jekyll serve          # local dev (http://127.0.0.1:4000/api-landing/)
-bundle exec markdownlint guides/  # lint Markdown
+npx markdownlint-cli "guides/**/*.markdown"  # lint Markdown
 ```
 
-CI runs markdownlint and Jekyll build on every PR. A successful build with no errors
+CI runs a Jekyll build on every PR. A successful build with no errors
 is required. Sass deprecation warnings from `_themes/` are expected and not actionable.
 
 ## Jekyll conventions
@@ -48,19 +48,6 @@ is required. Sass deprecation warnings from `_themes/` are expected and not acti
   (e.g. `#### Added Operations`) across version blocks.
 - PR titles follow Conventional Commits: `type: description` where type is one of
   `docs`, `ci`, `fix`, `style`, `chore`, `build`, `spec`.
-
-## CI/workflow conventions
-
-- `pr-preview.yml` uses a `preview_vars` step (`id: preview_vars`) to normalize
-  `vars.JEKYLL_URL` and `vars.JEKYLL_BASEURL`. All URL construction downstream must use
-  `steps.preview_vars.outputs.*` — never concatenate `vars.*` directly.
-- `deploy.yml` uses a `deploy_vars` step (`id: deploy_vars`) for the same normalization
-  on the production build.
-- `${VAR:-default}` bash fallback is intentional: GitHub Actions exposes unset repo
-  variables as empty strings, so `:-` (fallback on unset OR empty) is correct.
-- `JEKYLL_URL` = scheme+host only, no trailing slash (e.g. `https://jci-metasys.github.io`).
-- `JEKYLL_BASEURL` = subpath with leading slash, no trailing slash (e.g. `/api-landing`).
-  Empty string (`""`) is valid for root-deployed sites.
 
 ## Review focus areas
 
