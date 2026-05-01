@@ -8,7 +8,7 @@ source "https://rubygems.org"
 #
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
-gem "jekyll", "~> 3.9.3"
+gem "jekyll", "~> 4.4"
 
 gem "jekyll-remote-theme"
 gem "jekyll-sitemap"
@@ -27,9 +27,6 @@ group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.15.1"
 end
 
-# Call out specific versions to match GitHub Pages
-gem "rouge", "~> 3.26.0"
-gem "kramdown", "~> 2.3.2"
 gem "kramdown-parser-gfm", "~> 1.1.0"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
