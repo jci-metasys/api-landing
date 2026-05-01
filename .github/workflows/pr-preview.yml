@@ -2,7 +2,7 @@ name: PR Preview
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened, closed]
+    types: [opened, synchronize, reopened]
 
 # One preview deployment per PR at a time; cancel in-flight builds when new
 # commits arrive.
@@ -15,7 +15,6 @@ jobs:
   # Build and deploy a preview when a PR is opened or updated
   # -------------------------------------------------------------------------
   deploy-preview:
-    if: github.event.action != 'closed'
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -137,50 +136,3 @@ jobs:
             **[Open Preview →](https://jci-metasys.github.io/api-landing/pr-preview/pr-${{ github.event.pull_request.number }}/)**
 
             > Built from commit ${{ github.event.pull_request.head.sha }}
-
-  # -------------------------------------------------------------------------
-  # Clean up the preview when the PR is closed or merged
-  # -------------------------------------------------------------------------
-  cleanup-preview:
-    if: github.event.action == 'closed'
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
-
-    steps:
-      - name: Wait for any in-flight deployments to settle
-        run: sleep 15
-
-      - name: Remove preview directory from gh-pages branch
-        env:
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          set -euo pipefail
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
-          # Clone only the gh-pages branch (shallow, no blobs we don't need)
-          git clone --branch gh-pages --single-branch \
-            "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git" \
-            gh-pages-checkout
-
-          cd gh-pages-checkout
-
-          if [ -d "pr-preview/pr-${PR_NUMBER}" ]; then
-            git rm -rf "pr-preview/pr-${PR_NUMBER}"
-            git commit -m "chore: remove PR #${PR_NUMBER} preview"
-            git push
-          else
-            echo "No preview directory found for PR #${PR_NUMBER}, nothing to clean up."
-          fi
-
-      - name: Update comment to reflect removal
-        uses: marocchino/sticky-pull-request-comment@v3
-        with:
-          header: pr-preview
-          message: |
-            ## 🗑️ Site Preview Removed
-
-            The preview for this PR has been cleaned up.
