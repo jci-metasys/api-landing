@@ -15,6 +15,10 @@ The Metasys REST API was first released with Metasys 10.0 and has seen many
 changes and additions since then. Please select the appropriate set of
 documentation for your release of Metasys.
 
+- [Version 6 for Metasys 16]({{ '/api/v6-16' | relative_url }}) This is the third release of
+  Metasys which has not changed the version number of the API. There are
+  non-breaking changes including new fields for network devices and a new
+  request header for Send Command.
 - [Version 6 for Metasys 15]({{ '/api/v6-15' | relative_url }}) This is the second release of
   Metasys which has not changed the version number of the API. There are
   non-breaking changes and some newly deprecated operations which make this

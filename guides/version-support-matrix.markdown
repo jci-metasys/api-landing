@@ -27,12 +27,14 @@ release of Metasys.
       <th style="text-align: center;">14</th>
       <th style="text-align: center;">14.1</th>
       <th style="text-align: center;">15</th>
+      <th style="text-align: center;">16</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align: center;"><strong><a href="{{ '/api/v1/' | relative_url }}">v1</a></strong></td>
       <td style="text-align: center;"><i class='fa fa-check-circle'></i></td>
+      <td style="text-align: center;"></td>
       <td style="text-align: center;"></td>
       <td style="text-align: center;"></td>
       <td style="text-align: center;"></td>
@@ -51,6 +53,7 @@ release of Metasys.
       <td style="text-align: center;"></td>
       <td style="text-align: center;"></td>
       <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
     </tr>
     <tr>
       <td style="text-align: center;"><strong><a href="{{ '/api/v3/' | relative_url }}">v3</a></strong></td>
@@ -58,6 +61,7 @@ release of Metasys.
       <td style="text-align: center;"></td>
       <td style="text-align: center;"><i class='fa fa-check-circle'></i></td>
       <td style="text-align: center;"><i class='fa fa-check'></i></td>
+      <td style="text-align: center;"></td>
       <td style="text-align: center;"></td>
       <td style="text-align: center;"></td>
       <td style="text-align: center;"></td>
@@ -73,6 +77,7 @@ release of Metasys.
       <td style="text-align: center;"></td>
       <td style="text-align: center;"></td>
       <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
     </tr>
     <tr>
       <td style="text-align: center;"><strong><a href="{{ '/api/v5' | relative_url }}">v5</a></strong></td>
@@ -84,6 +89,7 @@ release of Metasys.
       <td style="text-align: center;"><i class='fa fa-check'></i></td>
       <td style="text-align: center;"><i class='fa fa-check'></i></td>
       <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
     </tr>
     <tr>
       <td style="text-align: center;"><strong><a href="{{ '/api/v6' | relative_url }}">v6</a></strong></td>
@@ -92,6 +98,7 @@ release of Metasys.
       <td style="text-align: center;"></td>
       <td style="text-align: center;"></td>
       <td style="text-align: center;"></td>
+      <td style="text-align: center;"><i class='fa fa-check-circle'></i></td>
       <td style="text-align: center;"><i class='fa fa-check-circle'></i></td>
       <td style="text-align: center;"><i class='fa fa-check-circle'></i></td>
       <td style="text-align: center;"><i class='fa fa-check-circle'></i></td>
@@ -106,9 +113,23 @@ release of Metasys.
       <td style="text-align: center;"></td>
       <td style="text-align: center;"><i class='fa fa-check-circle'></i></td>
       <td style="text-align: center;"><i class='fa fa-check-circle'></i></td>
+      <td style="text-align: center;"><i class='fa fa-check-circle'></i></td>
     </tr>
     <tr>
       <td style="text-align: center;"><strong><a href="{{ '/api/v6-15' | relative_url }}">v6 for 15</a></strong></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"><i class='fa fa-check-circle'></i></td>
+      <td style="text-align: center;"><i class='fa fa-check-circle'></i></td>
+    </tr>
+    <tr>
+      <td style="text-align: center;"><strong><a href="{{ '/api/v6-16' | relative_url }}">v6 for 16</a></strong></td>
+      <td style="text-align: center;"></td>
       <td style="text-align: center;"></td>
       <td style="text-align: center;"></td>
       <td style="text-align: center;"></td>
