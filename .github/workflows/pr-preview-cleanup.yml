@@ -1,0 +1,59 @@
+name: PR Preview Cleanup
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # midnight UTC daily
+  workflow_dispatch:
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: read
+
+    steps:
+      - name: Remove stale preview directories from gh-pages
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          git clone --depth 1 --branch gh-pages --single-branch \
+            "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git" \
+            gh-pages-checkout
+
+          cd gh-pages-checkout
+
+          if [ ! -d "pr-preview" ]; then
+            echo "No pr-preview directory found — nothing to clean up."
+            exit 0
+          fi
+
+          removed=0
+          for dir in pr-preview/pr-*/; do
+            pr_number="${dir#pr-preview/pr-}"
+            pr_number="${pr_number%/}"
+
+            state=$(gh pr view "$pr_number" \
+              --repo "${{ github.repository }}" \
+              --json state \
+              --jq '.state' 2>/dev/null || echo "UNKNOWN")
+
+            if [ "$state" != "OPEN" ]; then
+              echo "Removing preview for PR #${pr_number} (state: ${state})"
+              git rm -rf "pr-preview/pr-${pr_number}"
+              removed=$((removed + 1))
+            else
+              echo "Keeping preview for PR #${pr_number} (still open)"
+            fi
+          done
+
+          if [ "$removed" -gt 0 ]; then
+            git commit -m "chore: remove ${removed} stale PR preview(s)"
+            git push
+          else
+            echo "No stale previews found — nothing to commit."
+          fi
