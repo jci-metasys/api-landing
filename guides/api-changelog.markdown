@@ -11,6 +11,32 @@ icon: fa fa-list
 
 The changes for each release of the API are listed below.
 
+## Metasys 16.0
+
+Metasys 16.0 shipped with API version 6, extended with non-breaking additions
+since the version 6 release for Metasys 15.0. It was released on June 3, 2026.
+See the [API documentation]({{ '/api/v6-16' | relative_url }}) for the full
+specification.
+
+### Breaking Changes
+
+No breaking changes were made.
+
+### Changed Operations
+
+- Network Devices
+  - Operations that return network devices may now include `ethernetMacAddress`
+    and `modelName` properties in the response.
+  - The OpenAPI tag for Network Devices operations was renamed from
+    `network-devices` to `network devices`. This affects tooling that generates
+    code or groups operations by tag name.
+- Objects
+  - Send command (`PUT /objects/{objectId}/commands/{commandId}`) now accepts an
+    optional `METASYS-FEATURE` request header. Code-words passed in this header
+    allow callers to opt in to behavior changes for the operation. Currently one
+    code-word is defined: `standard-error`, which causes the operation to return
+    standard error responses rather than the legacy error payload.
+
 ## Metasys 15.0
 
 Metasys 15.0 shipped with API version 6, extended with non-breaking additions

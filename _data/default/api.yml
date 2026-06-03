@@ -1,3 +1,5 @@
+- name: '<i class="metasys"></i> API v6 (16.0)'
+  url: "api/v6-16"
 - name: '<i class="metasys"></i> API v6 (15.0)'
   url: "api/v6-15"
 - name: '<i class="metasys"></i> API v6 (14.1)'
