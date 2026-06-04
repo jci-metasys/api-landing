@@ -1,0 +1,62 @@
+[
+  {
+    "id": "tab-scheduled",
+    "type": "tab",
+    "label": "Scheduled Read Example",
+    "disabled": false,
+    "info": "Reads an attribute every 60 seconds and shows the value on the node status.\n\nBefore deploying:\n1. Double-click the 'Metasys Server' node and enter your server hostname and credentials.\n2. Double-click 'Read Present Value' and enter your object ID and attribute name.\n3. Optionally adjust the interval by double-clicking the 'Every 60s' inject node."
+  },
+  {
+    "id": "server-config-sched",
+    "type": "metasys server",
+    "name": "Metasys Server",
+    "host": "YOUR-METASYS-HOST",
+    "version": "4"
+  },
+  {
+    "id": "inject-sched",
+    "type": "inject",
+    "name": "Every 60s",
+    "props": [{ "p": "payload" }],
+    "repeat": "60",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "z": "tab-scheduled",
+    "x": 150,
+    "y": 120,
+    "wires": [["read-attr-sched"]]
+  },
+  {
+    "id": "read-attr-sched",
+    "type": "metasys read attribute",
+    "name": "Read Present Value",
+    "server": "server-config-sched",
+    "objectId": "YOUR-OBJECT-ID",
+    "attribute": "presentValue",
+    "z": "tab-scheduled",
+    "x": 360,
+    "y": 120,
+    "wires": [["debug-sched"]]
+  },
+  {
+    "id": "debug-sched",
+    "type": "debug",
+    "name": "Value",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": true,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "payload",
+    "statusType": "auto",
+    "z": "tab-scheduled",
+    "x": 560,
+    "y": 120,
+    "wires": []
+  }
+]
