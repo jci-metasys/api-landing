@@ -100,7 +100,7 @@ This package provides the following nodes for interacting with the Metasys REST 
 
 - **read attribute** — Reads attribute values from Metasys objects.
 - **write attribute** — Writes values to writable Metasys attributes.
-- **adjust value** — Performs adjustments to Metasys objects.
+- **adjust value** — Like write attribute but limited to `presentValue`, with an optional priority level.
 - **release** — Releases adjustments or overrides on Metasys objects.
 - **rest request** — Call any synchronous request/response operation in the
   Metasys REST API by specifying the URL, method, and payload.
