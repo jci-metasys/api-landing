@@ -198,17 +198,18 @@ SHA-256 hash as the value listed in `SHA256SUMS`. It verifies file integrity
 only and does not validate authenticity or provenance.
 
 <ul class="nav nav-tabs" id="verify-tabs" role="tablist">
-  <li role="presentation" class="active"><a href="#verify-mac" aria-controls="verify-mac" role="tab" data-toggle="tab">macOS</a></li>
+  <li role="presentation" class="active"><a href="#verify-win" aria-controls="verify-win" role="tab" data-toggle="tab">Windows</a></li>
   <li role="presentation"><a href="#verify-linux" aria-controls="verify-linux" role="tab" data-toggle="tab">Linux</a></li>
-  <li role="presentation"><a href="#verify-win" aria-controls="verify-win" role="tab" data-toggle="tab">Windows</a></li>
+  <li role="presentation"><a href="#verify-mac" aria-controls="verify-mac" role="tab" data-toggle="tab">macOS</a></li>
 </ul>
 <div class="tab-content" style="padding-top:15px">
-  <div role="tabpanel" class="tab-pane active" id="verify-mac">
-    <p>Download both files into a folder, open a terminal, change to that folder, then run:</p>
-    <pre><code class="language-bash">shasum -a 256 -c SHA256SUMS</code></pre>
-    <p>A successful result looks like:</p>
-    <pre><code class="language-bash">node-red-contrib-metasys-rest-&lt;version&gt;.tgz: OK</code></pre>
-    <p>If the result shows <code>FAILED</code>, do not install the tarball. Re-download the file and try again.</p>
+  <div role="tabpanel" class="tab-pane active" id="verify-win">
+    <p>Download both files into a folder. Open PowerShell, change to that folder, then:</p>
+    <p><strong>1. View the expected hash:</strong></p>
+    <pre><code class="language-powershell">Get-Content .\SHA256SUMS</code></pre>
+    <p><strong>2. Compute the hash of the tarball:</strong></p>
+    <pre><code class="language-powershell">(Get-FileHash .\node-red-contrib-metasys-rest-&lt;version&gt;.tgz -Algorithm SHA256).Hash</code></pre>
+    <p>Compare the two values — they must match (case-insensitive). If they do not match, do not install the tarball.</p>
   </div>
   <div role="tabpanel" class="tab-pane" id="verify-linux">
     <p>Download both files into a folder, open a terminal, change to that folder, then run:</p>
@@ -217,12 +218,11 @@ only and does not validate authenticity or provenance.
     <pre><code class="language-bash">node-red-contrib-metasys-rest-&lt;version&gt;.tgz: OK</code></pre>
     <p>If the result shows <code>FAILED</code>, do not install the tarball. Re-download the file and try again.</p>
   </div>
-  <div role="tabpanel" class="tab-pane" id="verify-win">
-    <p>Download both files into a folder. Open PowerShell, change to that folder, then:</p>
-    <p><strong>1. View the expected hash:</strong></p>
-    <pre><code class="language-powershell">Get-Content .\SHA256SUMS</code></pre>
-    <p><strong>2. Compute the hash of the tarball:</strong></p>
-    <pre><code class="language-powershell">(Get-FileHash .\node-red-contrib-metasys-rest-&lt;version&gt;.tgz -Algorithm SHA256).Hash</code></pre>
-    <p>Compare the two values — they must match (case-insensitive). If they do not match, do not install the tarball.</p>
+  <div role="tabpanel" class="tab-pane" id="verify-mac">
+    <p>Download both files into a folder, open a terminal, change to that folder, then run:</p>
+    <pre><code class="language-bash">shasum -a 256 -c SHA256SUMS</code></pre>
+    <p>A successful result looks like:</p>
+    <pre><code class="language-bash">node-red-contrib-metasys-rest-&lt;version&gt;.tgz: OK</code></pre>
+    <p>If the result shows <code>FAILED</code>, do not install the tarball. Re-download the file and try again.</p>
   </div>
 </div>
