@@ -6,9 +6,9 @@ color: red
 icon: fab fa-node-js
 ---
 
-The Metasys Node-RED nodes let Node-RED talk to a Metasys building automation
-server using its REST API. Read and write attribute values, poll on a schedule,
-and connect Metasys data to any service Node-RED supports.
+Six custom nodes for Node-RED that connect directly to the Metasys REST API —
+read and write attribute values, issue prioritized adjustments, release
+overrides, resolve object names, and call any API endpoint.
 
 ## What do you need to do?
 
