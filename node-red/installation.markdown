@@ -49,19 +49,18 @@ Replace `<version>` with the version number you received, for example
 
 ## Upgrading to a New Version
 
-Check if you already have a version installed:
+Run the same install command with the new tarball — npm replaces the existing
+version automatically:
+
+```bash
+npm install -g node-red-contrib-metasys-rest-<version>.tgz
+```
+
+You can confirm the installed version afterwards:
 
 ```bash
 npm list -g @metasys/node-red-contrib-metasys-rest
 ```
-
-If an existing version is shown, uninstall it before installing the new one:
-
-```bash
-npm uninstall -g @metasys/node-red-contrib-metasys-rest
-```
-
-Then follow the [Installation](#installation) instructions above.
 
 ---
 
