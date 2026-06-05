@@ -22,12 +22,15 @@ using its REST API. You can:
 
 - **Read** any attribute value from any Metasys object — present value,
   setpoint, occupancy status, alarms, and more.
-- **Write** values to writable attributes — adjust setpoints, change modes, send
+- **Write** to writable attributes — adjust setpoints, change modes, send
   commands.
-- **Poll on a schedule** — read a sensor every 30 seconds, trigger an action
-  when a value crosses a threshold, build dashboards.
-- **Build integrations** — connect Metasys data to databases, MQTT, email, cloud
-  services, or anything else Node-RED supports.
+- **Adjust** an object to an override value — temporarily force a setpoint or
+  change an operating mode.
+- **Release** an override — return an object to its normal control sequence.
+- **Look up** an object by name — resolve a name to its Metasys ID, with
+  optional caching to avoid repeated API calls.
+- **Call any API endpoint** — query alarms, retrieve trend data, manage
+  schedules, and more using the rest request node.
 
 ---
 
