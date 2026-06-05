@@ -170,10 +170,9 @@ For platform-specific setup instructions, see
 Node.js does not use the system certificate store by default. This means many
 internal servers appear untrusted to a Node.js application.
 
-### Certificate Options in the Node Editor
-
-The **Metasys server** config node has built-in certificate options that are
-often the easiest way to resolve trust issues without changing your environment:
+The **Metasys server** config node has built-in certificate options that handle
+the most common cases directly from the Node-RED editor — no environment
+variables or command-line flags needed:
 
 | Option | When to use |
 | --- | --- |
@@ -184,96 +183,6 @@ often the easiest way to resolve trust issues without changing your environment:
 
 These options apply only to connections made by this node. They do not affect
 other Node-RED nodes or system-wide trust settings.
-
-### Using the System Store
-
-Set the `NODE_USE_SYSTEM_CA` environment variable to `1` before starting Node-RED.
-This is the easiest option when your server certificate was issued by your IT department.
-
-<ul class="nav nav-tabs" id="sys-ca-tabs" role="tablist">
-  <li role="presentation" class="active"><a href="#sys-ca-ps" aria-controls="sys-ca-ps" role="tab" data-toggle="tab">PowerShell</a></li>
-  <li role="presentation"><a href="#sys-ca-cmd" aria-controls="sys-ca-cmd" role="tab" data-toggle="tab">Command Prompt</a></li>
-  <li role="presentation"><a href="#sys-ca-nix" aria-controls="sys-ca-nix" role="tab" data-toggle="tab">Linux / macOS</a></li>
-</ul>
-<div class="tab-content" style="padding-top:15px">
-  <div role="tabpanel" class="tab-pane active" id="sys-ca-ps">
-    <pre><code class="language-powershell">$env:NODE_USE_SYSTEM_CA=1
-node-red</code></pre>
-  </div>
-  <div role="tabpanel" class="tab-pane" id="sys-ca-cmd">
-    <pre><code class="language-batch">set NODE_USE_SYSTEM_CA=1
-node-red</code></pre>
-  </div>
-  <div role="tabpanel" class="tab-pane" id="sys-ca-nix">
-    <pre><code class="language-bash">NODE_USE_SYSTEM_CA=1 node-red</code></pre>
-  </div>
-</div>
-
-### Specifying a CA Certificate
-
-If your server uses a self-signed certificate, set `NODE_EXTRA_CA_CERTS` to a PEM
-file containing the root (and optionally intermediate) CA certificates to trust.
-
-<ul class="nav nav-tabs" id="ca-cert-tabs" role="tablist">
-  <li role="presentation" class="active"><a href="#ca-cert-ps" aria-controls="ca-cert-ps" role="tab" data-toggle="tab">PowerShell</a></li>
-  <li role="presentation"><a href="#ca-cert-cmd" aria-controls="ca-cert-cmd" role="tab" data-toggle="tab">Command Prompt</a></li>
-  <li role="presentation"><a href="#ca-cert-nix" aria-controls="ca-cert-nix" role="tab" data-toggle="tab">Linux / macOS</a></li>
-</ul>
-<div class="tab-content" style="padding-top:15px">
-  <div role="tabpanel" class="tab-pane active" id="ca-cert-ps">
-    <pre><code class="language-powershell">$env:NODE_EXTRA_CA_CERTS=C:\Users\tom\certs\certs.pem
-node-red</code></pre>
-  </div>
-  <div role="tabpanel" class="tab-pane" id="ca-cert-cmd">
-    <pre><code class="language-batch">set NODE_EXTRA_CA_CERTS=C:\Users\tom\certs\certs.pem
-node-red</code></pre>
-  </div>
-  <div role="tabpanel" class="tab-pane" id="ca-cert-nix">
-    <pre><code class="language-bash">NODE_EXTRA_CA_CERTS=~/certs/certs.pem node-red</code></pre>
-  </div>
-</div>
-
-<div class="callout-block callout-info">
-  <div class="icon-holder"><i class="fas fa-info-circle"></i></div>
-  <div class="content">
-    <span class="callout-title">Note</span>
-    <p><code>certs.pem</code> should contain the root CA and (if applicable) intermediate CA
-    certificates concatenated into one file. This trusts any certificate signed by
-    that CA chain, including self-signed certificates you add directly.</p>
-  </div>
-</div>
-
-### Disabling Certificate Verification
-
-<div class="callout-block callout-danger">
-  <div class="icon-holder"><i class="fas fa-exclamation-triangle"></i></div>
-  <div class="content">
-    <span class="callout-title">Warning</span>
-    <p>Turning off certificate checking is insecure. Use this only against known
-    hosts with self-signed certificates in a development or lab environment.
-    Never use in production.</p>
-  </div>
-</div>
-
-Set `NODE_TLS_REJECT_UNAUTHORIZED` to `0` before starting Node-RED.
-
-<ul class="nav nav-tabs" id="tls-off-tabs" role="tablist">
-  <li role="presentation" class="active"><a href="#tls-off-ps" aria-controls="tls-off-ps" role="tab" data-toggle="tab">PowerShell</a></li>
-  <li role="presentation"><a href="#tls-off-cmd" aria-controls="tls-off-cmd" role="tab" data-toggle="tab">Command Prompt</a></li>
-  <li role="presentation"><a href="#tls-off-nix" aria-controls="tls-off-nix" role="tab" data-toggle="tab">Linux / macOS</a></li>
-</ul>
-<div class="tab-content" style="padding-top:15px">
-  <div role="tabpanel" class="tab-pane active" id="tls-off-ps">
-    <pre><code class="language-powershell">$env:NODE_TLS_REJECT_UNAUTHORIZED=0; node-red</code></pre>
-  </div>
-  <div role="tabpanel" class="tab-pane" id="tls-off-cmd">
-    <pre><code class="language-batch">set NODE_TLS_REJECT_UNAUTHORIZED=0
-node-red</code></pre>
-  </div>
-  <div role="tabpanel" class="tab-pane" id="tls-off-nix">
-    <pre><code class="language-bash">NODE_TLS_REJECT_UNAUTHORIZED=0 node-red</code></pre>
-  </div>
-</div>
 
 ---
 
