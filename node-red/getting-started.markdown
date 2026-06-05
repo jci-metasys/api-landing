@@ -13,7 +13,7 @@ For installation, upgrade, certificate, and security setup instructions see the
 Once installed, open Node-RED and confirm you can see the Metasys nodes in the
 palette on the left under a **Metasys** section.
 
-![Metasys nodes in the Node-RED palette]({{ '/assets/node-red/images/palette.png' | relative_url }})
+<img src="{{ '/assets/node-red/images/palette.png' | relative_url }}" alt="Metasys nodes in the Node-RED palette" class="img-responsive">
 
 ## What These Nodes Do
 
@@ -55,44 +55,7 @@ for step-by-step instructions.
 
 ---
 
-## Step 1 — Configure Your Server Connection
-
-All Metasys nodes share a single **Metasys Server** configuration node that
-holds your server address and credentials. You create it once and all your nodes
-reuse it.
-
-1. Drag any Metasys node (for example, **read attribute**) onto the canvas.
-2. Double-click it to open its configuration panel.
-3. Click the pencil icon next to the **Server** field to create a new server
-   configuration.
-4. Fill in:
-   - **Name** — a name for this server (e.g. `Metasys Server`). This is how
-     you identify and select the server in each node, so choose something
-     meaningful if you have more than one.
-   - **Host** — the hostname or IP address of your Metasys server (e.g.
-     `metasys.example.com` or `192.168.1.100`)
-   - **API Version** — leave as the default for Metasys 14 or later
-   - **Username** and **Password** — your Metasys login credentials
-5. If your server uses a certificate that Node.js doesn't trust by default,
-   expand the **Certificate** section and choose the appropriate option. See
-   [Dealing with Certs]({% link node-red/installation.markdown %}#dealing-with-certs) in the Installation Guide.
-6. Click **Add** to save the server configuration.
-
-![Metasys Server configuration panel]({{ '/assets/node-red/images/server-config.png' | relative_url }})
-
-<div class="callout-block callout-info">
-  <div class="icon-holder"><i class="fas fa-info-circle"></i></div>
-  <div class="content">
-    <span class="callout-title">Tip</span>
-    <p>The server node is a <em>configuration node</em> — it does not appear on the
-    canvas. You manage it through the nodes that reference it, or through
-    <strong>Menu → Configuration nodes</strong>.</p>
-  </div>
-</div>
-
----
-
-## Step 2 — Find Your Object ID
+## Before You Start: Find Your Object ID
 
 Each read or write node needs the **object ID** of the Metasys object you want
 to work with. Object IDs are unique identifiers (GUIDs) assigned by Metasys —
@@ -100,10 +63,9 @@ they look like `f63d8e01-e68b-5fa7-b41f-9b37e4dd6e6a`.
 
 The easiest place to find one is in the Metasys UI: open the focus view for the
 object, go to the **Engineering Values** section, and look for the **ID**
-attribute. Copy that value — you'll paste it into the node configuration in the
-steps below.
+attribute. Copy that value — you'll paste it into the node configuration below.
 
-![ID attribute in the Engineering Values section of the Metasys focus view]({{ '/assets/node-red/images/object-id.png' | relative_url }})
+<img src="{{ '/assets/node-red/images/object-id.png' | relative_url }}" alt="ID attribute in the Engineering Values section of the Metasys focus view" class="img-responsive">
 
 Once you have an object's ID it never changes, so you can use it directly in
 your node configurations.
@@ -121,36 +83,60 @@ a button.
    `start`. Leave everything else as-is — it will send a timestamp by default,
    but the value doesn't matter. It's the act of a message flowing through the
    wire that tells the read attribute node to fetch a value.
+
 2. Drag a **read attribute** node to the right of the inject node. Double-click
    it and configure:
-   - **Server** — select the server you created in Step 1
-   - **Object ID** — paste the object ID you found in Step 2
+   - **Server** — click the pencil icon to create a new server configuration:
+     - **Name** — a label for this server (e.g. `Metasys Server`). This is how
+       you identify and select the server in each node if you have more than one.
+     - **Host** — the hostname or IP address of your Metasys server (e.g.
+       `metasys.example.com` or `192.168.1.100`)
+     - **API Version** — leave as the default for Metasys 14 or later
+     - **Username** and **Password** — your Metasys login credentials
+     - If your server uses a certificate that Node.js doesn't trust by default,
+       expand the **Certificate** section. See
+       [Dealing with Certs]({% link node-red/installation.markdown %}#dealing-with-certs)
+       in the Installation Guide.
+     - Click **Add** to save.
+   - **Object ID** — paste the object ID you found above
    - **Attribute** — enter `presentValue` (or any other attribute name)
 
-   ![Read attribute node configuration panel]({{ '/assets/node-red/images/read-attribute-config.png' | relative_url }})
+<img src="{{ '/assets/node-red/images/read-attribute-config.png' | relative_url }}" alt="Read attribute node configuration panel" class="img-responsive">
+
+<img src="{{ '/assets/node-red/images/server-config.png' | relative_url }}" alt="Metasys Server configuration panel" class="img-responsive">
+
+<div class="callout-block callout-info">
+  <div class="icon-holder"><i class="fas fa-info-circle"></i></div>
+  <div class="content">
+    <span class="callout-title">Tip</span>
+    <p>The server node is a <em>configuration node</em> — it does not appear on the
+    canvas. You manage it through the nodes that reference it, or through
+    <strong>Menu → Configuration nodes</strong>.</p>
+  </div>
+</div>
 
 3. Drag a **debug** node to the right of the read attribute node. Double-click
    it and set **Name** to `output`. Change **Output** from `msg.payload` to
    **complete msg object** so you can see the full response from Metasys, not
    just the value.
 
-   ![Debug node configuration]({{ '/assets/node-red/images/debug.png' | relative_url }})
+<img src="{{ '/assets/node-red/images/debug.png' | relative_url }}" alt="Debug node configuration" class="img-responsive">
 
 4. Wire them together: inject → read attribute → debug.
 5. Click **Deploy** (red button, top right).
 
-   ![Completed read attribute flow]({{ '/assets/node-red/images/read-flow.png' | relative_url }})
+<img src="{{ '/assets/node-red/images/read-flow.png' | relative_url }}" alt="Completed read attribute flow" class="img-responsive">
 
 6. Click the button on the left side of the **start** node.
 7. The attribute value appears in the **Debug** panel (right side, bug icon) and
    also on the node itself below its label. It should look something like this:
 
-   ![Debug output]({{ '/assets/node-red/images/debug-output.png' | relative_url }})
+<img src="{{ '/assets/node-red/images/debug-output.png' | relative_url }}" alt="Debug output" class="img-responsive">
 
    You can click the disclosure triangle to more easily read the output. The
    `payload` in this case is the current value.
 
-   ![Debug output with JSON expanded]({{ '/assets/node-red/images/debug-pretty-output.png' | relative_url }})
+<img src="{{ '/assets/node-red/images/debug-pretty-output.png' | relative_url }}" alt="Debug output with JSON expanded" class="img-responsive">
 
 <details>
 <summary>Or import the example flow</summary>
