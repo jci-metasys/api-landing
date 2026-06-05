@@ -35,28 +35,16 @@ vulnerabilities. You can find the latest release on the
 
 See [Verify Release Artifacts](#verify-release-artifacts) before installing.
 
-**Important:** If you have previously installed this package, see
-[Upgrading to a New Version](#upgrading-to-a-new-version) instead.
+This command works for both first-time installs and upgrades — npm replaces any
+existing version automatically:
 
 ```bash
 npm install -g node-red-contrib-metasys-rest-<version>.tgz
 ```
 
 Replace `<version>` with the version number you received, for example
-`node-red-contrib-metasys-rest-1.0.0.tgz`.
-
----
-
-## Upgrading to a New Version
-
-Run the same install command with the new tarball — npm replaces the existing
-version automatically:
-
-```bash
-npm install -g node-red-contrib-metasys-rest-<version>.tgz
-```
-
-You can confirm the installed version afterwards:
+`node-red-contrib-metasys-rest-1.0.0.tgz`. You can confirm the installed
+version afterwards:
 
 ```bash
 npm list -g @metasys/node-red-contrib-metasys-rest
