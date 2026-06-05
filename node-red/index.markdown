@@ -13,7 +13,7 @@ For installation, upgrade, certificate, and security setup instructions see the
 Once installed, open Node-RED and confirm you can see the Metasys nodes in the
 palette on the left under a **Metasys** section.
 
-![Metasys nodes in the Node-RED palette]({{ '/assets/images/node-red/palette.png' | relative_url }})
+![Metasys nodes in the Node-RED palette]({{ '/assets/node-red/images/palette.png' | relative_url }})
 
 ## What These Nodes Do
 
@@ -75,7 +75,7 @@ reuse it.
    [Dealing with Certs](reference/#dealing-with-certs) in the Reference Guide.
 6. Click **Add** to save the server configuration.
 
-![Metasys Server configuration panel]({{ '/assets/images/node-red/server-config.png' | relative_url }})
+![Metasys Server configuration panel]({{ '/assets/node-red/images/server-config.png' | relative_url }})
 
 <div class="callout-block callout-info">
   <div class="icon-holder"><i class="fas fa-info-circle"></i></div>
@@ -100,7 +100,7 @@ object, go to the **Engineering Values** section, and look for the **ID**
 attribute. Copy that value — you'll paste it into the node configuration in the
 steps below.
 
-![ID attribute in the Engineering Values section of the Metasys focus view]({{ '/assets/images/node-red/object-id.png' | relative_url }})
+![ID attribute in the Engineering Values section of the Metasys focus view]({{ '/assets/node-red/images/object-id.png' | relative_url }})
 
 Once you have an object's ID it never changes, so you can use it directly in
 your node configurations.
@@ -124,35 +124,35 @@ a button.
    - **Object ID** — paste the object ID you found in Step 2
    - **Attribute** — enter `presentValue` (or any other attribute name)
 
-   ![Read attribute node configuration panel]({{ '/assets/images/node-red/read-attribute-config.png' | relative_url }})
+   ![Read attribute node configuration panel]({{ '/assets/node-red/images/read-attribute-config.png' | relative_url }})
 
 3. Drag a **debug** node to the right of the read attribute node. Double-click
    it and set **Name** to `output`. Change **Output** from `msg.payload` to
    **complete msg object** so you can see the full response from Metasys, not
    just the value.
 
-   ![Debug node configuration]({{ '/assets/images/node-red/debug.png' | relative_url }})
+   ![Debug node configuration]({{ '/assets/node-red/images/debug.png' | relative_url }})
 
 4. Wire them together: inject → read attribute → debug.
 5. Click **Deploy** (red button, top right).
 
-   ![Completed read attribute flow]({{ '/assets/images/node-red/read-flow.png' | relative_url }})
+   ![Completed read attribute flow]({{ '/assets/node-red/images/read-flow.png' | relative_url }})
 
 6. Click the button on the left side of the **start** node.
 7. The attribute value appears in the **Debug** panel (right side, bug icon) and
    also on the node itself below its label. It should look something like this:
 
-   ![Debug output]({{ '/assets/images/node-red/debug-output.png' | relative_url }})
+   ![Debug output]({{ '/assets/node-red/images/debug-output.png' | relative_url }})
 
    You can click the disclosure triangle to more easily read the output. The
    `payload` in this case is the current value.
 
-   ![Debug output with JSON expanded]({{ '/assets/images/node-red/debug-pretty-output.png' | relative_url }})
+   ![Debug output with JSON expanded]({{ '/assets/node-red/images/debug-pretty-output.png' | relative_url }})
 
 <details>
 <summary>Or import the example flow</summary>
 
-Download [read-attribute.json]({{ '/assets/flows/read-attribute.json' | relative_url }}), then in Node-RED:
+Download [read-attribute.json]({{ '/assets/node-red/flows/read-attribute.json' | relative_url }}), then in Node-RED:
 
 1. Open **Menu (☰) → Import**.
 2. Click **select a file to import** and choose the downloaded file.
@@ -178,7 +178,7 @@ To read automatically every 60 seconds instead of on demand, change the inject n
 The current value appears on the node itself below its label, so you can see it
 at a glance without opening the debug panel.
 
-Download the pre-configured version: [scheduled-read.json]({{ '/assets/flows/scheduled-read.json' | relative_url }})
+Download the pre-configured version: [scheduled-read.json]({{ '/assets/node-red/flows/scheduled-read.json' | relative_url }})
 
 ---
 
@@ -227,7 +227,7 @@ in the debug panel and on the node itself.
 <details>
 <summary>Or import the example flow</summary>
 
-Download [write-attribute.json]({{ '/assets/flows/write-attribute.json' | relative_url }}) and import it
+Download [write-attribute.json]({{ '/assets/node-red/flows/write-attribute.json' | relative_url }}) and import it
 the same way as the read example. Change the inject node's payload to the value
 you want to write before deploying.
 
