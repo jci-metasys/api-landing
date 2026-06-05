@@ -53,7 +53,7 @@
       intro: "Integrate Metasys with Node-RED flows. Read and write attributes, poll on a schedule, and connect to any service Node-RED supports."
       color: "red"
       icon: "fab fa-node-js"
-      url: "node-red/"
+      url: "node-red/getting-started/"
 
 - title: "SDK"
   intro: "Client Libraries for the API"

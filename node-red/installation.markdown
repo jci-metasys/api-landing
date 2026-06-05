@@ -1,6 +1,6 @@
 ---
-title: "Metasys Node-RED Reference"
-permalink: /node-red/reference/
+title: "Metasys Node-RED — Installation"
+permalink: /node-red/installation/
 layout: post
 color: red
 icon: fab fa-node-js

@@ -1,6 +1,6 @@
 ---
-title: "Metasys Node-RED Quick Start"
-permalink: /node-red/
+title: "Metasys Node-RED — Getting Started"
+permalink: /node-red/getting-started/
 layout: post
 color: red
 icon: fab fa-node-js
@@ -8,7 +8,7 @@ icon: fab fa-node-js
 
 This guide assumes you have Node-RED running with the Metasys nodes installed.
 For installation, upgrade, certificate, and security setup instructions see the
-[Reference Guide](reference/).
+[Reference Guide](installation/).
 
 Once installed, open Node-RED and confirm you can see the Metasys nodes in the
 palette on the left under a **Metasys** section.
@@ -46,7 +46,7 @@ using its REST API. You can:
 
 By default, Node-RED runs with no authentication and no encryption. **Secure
 Node-RED before connecting it to a production Metasys server.** See the
-[Reference Guide](reference/#security-recommendations) for what to configure and the
+[Reference Guide](installation/#security-recommendations) for what to configure and the
 [Node-RED Security Guide](https://nodered.org/docs/user-guide/runtime/securing-node-red){:target="_blank"}
 for step-by-step instructions.
 
@@ -72,7 +72,7 @@ reuse it.
    - **Username** and **Password** — your Metasys login credentials
 5. If your server uses a certificate that Node.js doesn't trust by default,
    expand the **Certificate** section and choose the appropriate option. See
-   [Dealing with Certs](reference/#dealing-with-certs) in the Reference Guide.
+   [Dealing with Certs](installation/#dealing-with-certs) in the Reference Guide.
 6. Click **Add** to save the server configuration.
 
 ![Metasys Server configuration panel]({{ '/assets/node-red/images/server-config.png' | relative_url }})
@@ -281,7 +281,7 @@ method.
 | Symptom | Likely cause | Fix |
 | --- | --- | --- |
 | Node shows **not connected** | Wrong host or credentials | Re-open the server config and verify host/user/password |
-| Node shows **certificate error** | TLS trust issue | See [Dealing with Certs](reference/#dealing-with-certs) in the Reference Guide |
+| Node shows **certificate error** | TLS trust issue | See [Dealing with Certs](installation/#dealing-with-certs) in the Reference Guide |
 | Node shows **401 Unauthorized** | Credentials rejected | Check your Metasys username and password |
 | Node shows **404 Not Found** | Object ID or attribute name is wrong | Verify the object ID using the lookup node |
 | Read returns `null` | Attribute exists but has no value | Normal for some attributes in certain states |
