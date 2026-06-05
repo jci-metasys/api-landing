@@ -24,8 +24,8 @@ using its REST API. You can:
   setpoint, occupancy status, alarms, and more.
 - **Write** to writable attributes — adjust setpoints, change modes, send
   commands.
-- **Adjust** an object to an override value — temporarily force a setpoint or
-  change an operating mode.
+- **Adjust** an object's present value — like write attribute but limited to
+  `presentValue` and with an optional priority level.
 - **Release** an override — return an object to its normal control sequence.
 - **Look up** an object by name — resolve a name to its Metasys ID, with
   optional caching to avoid repeated API calls.
