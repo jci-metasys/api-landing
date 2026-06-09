@@ -16,7 +16,10 @@ Node-RED's built-in ones, so you may need to scroll down in the palette to find
 it. You can pin it near the top by adding `Metasys` to the `paletteCategories`
 list in your `settings.js`.
 
-<img src="{{ '/assets/node-red/images/palette.png' | relative_url }}" alt="Metasys nodes in the Node-RED palette" class="img-responsive img-thumbnail center-block" style="max-width: 400px">
+<figure>
+  <img src="{{ '/assets/node-red/images/palette.png' | relative_url }}" alt="Metasys nodes in the Node-RED palette" title="Metasys nodes in the Node-RED palette" class="img-responsive img-thumbnail center-block" style="max-width: 400px">
+  <figcaption>Metasys nodes in the Node-RED palette</figcaption>
+</figure>
 
 ## What These Nodes Do
 
@@ -68,7 +71,10 @@ The easiest place to find one is in the Metasys UI: open the focus view for the
 object, go to the **Engineering Values** section, and look for the **ID**
 attribute. Copy that value — you'll paste it into the node configuration below.
 
-<img src="{{ '/assets/node-red/images/object-id.png' | relative_url }}" alt="ID attribute in the Engineering Values section of the Metasys focus view" class="img-responsive img-thumbnail center-block" style="max-width: 700px">
+<figure>
+  <img src="{{ '/assets/node-red/images/object-id.png' | relative_url }}" alt="ID attribute in the Engineering Values section of the Metasys focus view" title="ID attribute in the Engineering Values section of the Metasys focus view" class="img-responsive img-thumbnail center-block" style="max-width: 700px">
+  <figcaption>ID attribute in the Engineering Values section of the Metasys focus view</figcaption>
+</figure>
 
 Once you have an object's ID it never changes, so you can use it directly in
 your node configurations.
@@ -104,9 +110,15 @@ a button.
    - **Object ID** — paste the object ID you found above
    - **Attribute** — enter `presentValue` (or any other attribute name)
 
-<img src="{{ '/assets/node-red/images/read-attribute-config.png' | relative_url }}" alt="Read attribute node configuration panel" class="img-responsive img-thumbnail center-block" style="max-width: 550px">
+<figure>
+  <img src="{{ '/assets/node-red/images/read-attribute-config.png' | relative_url }}" alt="Read attribute node configuration panel" title="Read attribute node configuration panel" class="img-responsive img-thumbnail center-block" style="max-width: 550px">
+  <figcaption>Read attribute node configuration panel</figcaption>
+</figure>
 
-<img src="{{ '/assets/node-red/images/server-config.png' | relative_url }}" alt="Metasys Server configuration panel" class="img-responsive img-thumbnail center-block" style="max-width: 550px">
+<figure>
+  <img src="{{ '/assets/node-red/images/server-config.png' | relative_url }}" alt="Metasys Server configuration panel" title="Metasys Server configuration panel" class="img-responsive img-thumbnail center-block" style="max-width: 550px">
+  <figcaption>Metasys Server configuration panel</figcaption>
+</figure>
 
 <div class="callout-block callout-info">
   <div class="icon-holder"><i class="fas fa-info-circle"></i></div>
@@ -123,23 +135,35 @@ a button.
    **complete msg object** so you can see the full response from Metasys, not
    just the value.
 
-<img src="{{ '/assets/node-red/images/debug.png' | relative_url }}" alt="Debug node configuration" class="img-responsive img-thumbnail center-block" style="max-width: 550px">
+<figure>
+  <img src="{{ '/assets/node-red/images/debug.png' | relative_url }}" alt="Debug node configuration" title="Debug node configuration" class="img-responsive img-thumbnail center-block" style="max-width: 550px">
+  <figcaption>Debug node configuration</figcaption>
+</figure>
 
 4. Wire them together: inject → read attribute → debug.
 5. Click **Deploy** (red button, top right).
 
-<img src="{{ '/assets/node-red/images/read-flow.png' | relative_url }}" alt="Completed read attribute flow" class="img-responsive img-thumbnail center-block">
+<figure>
+  <img src="{{ '/assets/node-red/images/read-flow.png' | relative_url }}" alt="Completed read attribute flow" title="Completed read attribute flow" class="img-responsive img-thumbnail center-block">
+  <figcaption>Completed read attribute flow</figcaption>
+</figure>
 
 6. Click the button on the left side of the **start** node.
 7. The attribute value appears in the **Debug** panel (right side, bug icon) and
    also on the node itself below its label. It should look something like this:
 
-<img src="{{ '/assets/node-red/images/debug-output.png' | relative_url }}" alt="Debug output" class="img-responsive img-thumbnail center-block" style="max-width: 600px">
+<figure>
+  <img src="{{ '/assets/node-red/images/debug-output.png' | relative_url }}" alt="Debug output" title="Debug output" class="img-responsive img-thumbnail center-block" style="max-width: 600px">
+  <figcaption>Debug output</figcaption>
+</figure>
 
    You can click the disclosure triangle to more easily read the output. The
    `payload` in this case is the current value.
 
-<img src="{{ '/assets/node-red/images/debug-pretty-output.png' | relative_url }}" alt="Debug output with JSON expanded" class="img-responsive img-thumbnail center-block" style="max-width: 600px">
+<figure>
+  <img src="{{ '/assets/node-red/images/debug-pretty-output.png' | relative_url }}" alt="Debug output with JSON expanded" title="Debug output with JSON expanded" class="img-responsive img-thumbnail center-block" style="max-width: 600px">
+  <figcaption>Debug output with JSON expanded</figcaption>
+</figure>
 
 <details>
 <summary>Or import the example flow</summary>
