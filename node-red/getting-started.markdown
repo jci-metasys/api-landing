@@ -11,7 +11,10 @@ For installation, upgrade, certificate, and security setup instructions see the
 [Installation Guide]({% link node-red/installation.markdown %}).
 
 Once installed, open Node-RED and confirm you can see the Metasys nodes in the
-palette on the left under a **Metasys** section.
+palette on the left under a **Metasys** section. Custom categories appear after
+Node-RED's built-in ones, so you may need to scroll down in the palette to find
+it. You can pin it near the top by adding `Metasys` to the `paletteCategories`
+list in your `settings.js`.
 
 <img src="{{ '/assets/node-red/images/palette.png' | relative_url }}" alt="Metasys nodes in the Node-RED palette" class="img-responsive img-thumbnail center-block" style="max-width: 400px">
 
