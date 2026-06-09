@@ -61,13 +61,11 @@ ul {
 }
 
 figure {
-  display: table;
+  width: fit-content;
   margin: 1em auto 1.5em;
 }
 
 figcaption {
-  display: table-caption;
-  caption-side: bottom;
   text-align: center;
   color: #888;
   font-size: 0.9em;
