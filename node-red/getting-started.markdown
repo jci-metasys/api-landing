@@ -17,7 +17,7 @@ it. You can pin it near the top by adding `Metasys` to the `paletteCategories`
 list in your `settings.js`.
 
 <figure>
-  <img src="{{ '/assets/node-red/images/palette.png' | relative_url }}" alt="Metasys nodes in the Node-RED palette" title="Metasys nodes in the Node-RED palette" class="img-responsive img-thumbnail center-block" style="max-width: 400px">
+  <img src="{{ '/assets/node-red/images/palette.png' | relative_url }}" alt="Metasys nodes in the Node-RED palette" title="Metasys nodes in the Node-RED palette" class="img-responsive img-thumbnail" style="max-width: 400px">
   <figcaption>Metasys nodes in the Node-RED palette</figcaption>
 </figure>
 
@@ -72,7 +72,7 @@ object, go to the **Engineering Values** section, and look for the **ID**
 attribute. Copy that value — you'll paste it into the node configuration below.
 
 <figure>
-  <img src="{{ '/assets/node-red/images/object-id.png' | relative_url }}" alt="ID attribute in the Engineering Values section of the Metasys focus view" title="ID attribute in the Engineering Values section of the Metasys focus view" class="img-responsive img-thumbnail center-block" style="max-width: 700px">
+  <img src="{{ '/assets/node-red/images/object-id.png' | relative_url }}" alt="ID attribute in the Engineering Values section of the Metasys focus view" title="ID attribute in the Engineering Values section of the Metasys focus view" class="img-responsive img-thumbnail" style="max-width: 700px">
   <figcaption>ID attribute in the Engineering Values section of the Metasys focus view</figcaption>
 </figure>
 
@@ -111,12 +111,12 @@ a button.
    - **Attribute** — enter `presentValue` (or any other attribute name)
 
 <figure>
-  <img src="{{ '/assets/node-red/images/read-attribute-config.png' | relative_url }}" alt="Read attribute node configuration panel" title="Read attribute node configuration panel" class="img-responsive img-thumbnail center-block" style="max-width: 550px">
+  <img src="{{ '/assets/node-red/images/read-attribute-config.png' | relative_url }}" alt="Read attribute node configuration panel" title="Read attribute node configuration panel" class="img-responsive img-thumbnail" style="max-width: 550px">
   <figcaption>Read attribute node configuration panel</figcaption>
 </figure>
 
 <figure>
-  <img src="{{ '/assets/node-red/images/server-config.png' | relative_url }}" alt="Metasys Server configuration panel" title="Metasys Server configuration panel" class="img-responsive img-thumbnail center-block" style="max-width: 550px">
+  <img src="{{ '/assets/node-red/images/server-config.png' | relative_url }}" alt="Metasys Server configuration panel" title="Metasys Server configuration panel" class="img-responsive img-thumbnail" style="max-width: 550px">
   <figcaption>Metasys Server configuration panel</figcaption>
 </figure>
 
@@ -136,7 +136,7 @@ a button.
    just the value.
 
 <figure>
-  <img src="{{ '/assets/node-red/images/debug.png' | relative_url }}" alt="Debug node configuration" title="Debug node configuration" class="img-responsive img-thumbnail center-block" style="max-width: 550px">
+  <img src="{{ '/assets/node-red/images/debug.png' | relative_url }}" alt="Debug node configuration" title="Debug node configuration" class="img-responsive img-thumbnail" style="max-width: 550px">
   <figcaption>Debug node configuration</figcaption>
 </figure>
 
@@ -144,7 +144,7 @@ a button.
 5. Click **Deploy** (red button, top right).
 
 <figure>
-  <img src="{{ '/assets/node-red/images/read-flow.png' | relative_url }}" alt="Completed read attribute flow" title="Completed read attribute flow" class="img-responsive img-thumbnail center-block">
+  <img src="{{ '/assets/node-red/images/read-flow.png' | relative_url }}" alt="Completed read attribute flow" title="Completed read attribute flow" class="img-responsive img-thumbnail">
   <figcaption>Completed read attribute flow</figcaption>
 </figure>
 
@@ -153,7 +153,7 @@ a button.
    also on the node itself below its label. It should look something like this:
 
 <figure>
-  <img src="{{ '/assets/node-red/images/debug-output.png' | relative_url }}" alt="Debug output" title="Debug output" class="img-responsive img-thumbnail center-block" style="max-width: 600px">
+  <img src="{{ '/assets/node-red/images/debug-output.png' | relative_url }}" alt="Debug output" title="Debug output" class="img-responsive img-thumbnail" style="max-width: 600px">
   <figcaption>Debug output</figcaption>
 </figure>
 
@@ -161,7 +161,7 @@ a button.
    `payload` in this case is the current value.
 
 <figure>
-  <img src="{{ '/assets/node-red/images/debug-pretty-output.png' | relative_url }}" alt="Debug output with JSON expanded" title="Debug output with JSON expanded" class="img-responsive img-thumbnail center-block" style="max-width: 600px">
+  <img src="{{ '/assets/node-red/images/debug-pretty-output.png' | relative_url }}" alt="Debug output with JSON expanded" title="Debug output with JSON expanded" class="img-responsive img-thumbnail" style="max-width: 600px">
   <figcaption>Debug output with JSON expanded</figcaption>
 </figure>
 
