@@ -13,7 +13,7 @@ For installation, upgrade, certificate, and security setup instructions see the
 Once installed, open Node-RED and confirm you can see the Metasys nodes in the
 palette on the left under a **Metasys** section.
 
-<img src="{{ '/assets/node-red/images/palette.png' | relative_url }}" alt="Metasys nodes in the Node-RED palette" class="img-responsive">
+<img src="{{ '/assets/node-red/images/palette.png' | relative_url }}" alt="Metasys nodes in the Node-RED palette" class="img-responsive img-thumbnail center-block" style="max-width: 400px">
 
 ## What These Nodes Do
 
@@ -65,7 +65,7 @@ The easiest place to find one is in the Metasys UI: open the focus view for the
 object, go to the **Engineering Values** section, and look for the **ID**
 attribute. Copy that value — you'll paste it into the node configuration below.
 
-<img src="{{ '/assets/node-red/images/object-id.png' | relative_url }}" alt="ID attribute in the Engineering Values section of the Metasys focus view" class="img-responsive">
+<img src="{{ '/assets/node-red/images/object-id.png' | relative_url }}" alt="ID attribute in the Engineering Values section of the Metasys focus view" class="img-responsive img-thumbnail center-block" style="max-width: 700px">
 
 Once you have an object's ID it never changes, so you can use it directly in
 your node configurations.
@@ -101,9 +101,9 @@ a button.
    - **Object ID** — paste the object ID you found above
    - **Attribute** — enter `presentValue` (or any other attribute name)
 
-<img src="{{ '/assets/node-red/images/read-attribute-config.png' | relative_url }}" alt="Read attribute node configuration panel" class="img-responsive">
+<img src="{{ '/assets/node-red/images/read-attribute-config.png' | relative_url }}" alt="Read attribute node configuration panel" class="img-responsive img-thumbnail center-block" style="max-width: 550px">
 
-<img src="{{ '/assets/node-red/images/server-config.png' | relative_url }}" alt="Metasys Server configuration panel" class="img-responsive">
+<img src="{{ '/assets/node-red/images/server-config.png' | relative_url }}" alt="Metasys Server configuration panel" class="img-responsive img-thumbnail center-block" style="max-width: 550px">
 
 <div class="callout-block callout-info">
   <div class="icon-holder"><i class="fas fa-info-circle"></i></div>
@@ -120,23 +120,23 @@ a button.
    **complete msg object** so you can see the full response from Metasys, not
    just the value.
 
-<img src="{{ '/assets/node-red/images/debug.png' | relative_url }}" alt="Debug node configuration" class="img-responsive">
+<img src="{{ '/assets/node-red/images/debug.png' | relative_url }}" alt="Debug node configuration" class="img-responsive img-thumbnail center-block" style="max-width: 550px">
 
 4. Wire them together: inject → read attribute → debug.
 5. Click **Deploy** (red button, top right).
 
-<img src="{{ '/assets/node-red/images/read-flow.png' | relative_url }}" alt="Completed read attribute flow" class="img-responsive">
+<img src="{{ '/assets/node-red/images/read-flow.png' | relative_url }}" alt="Completed read attribute flow" class="img-responsive img-thumbnail center-block">
 
 6. Click the button on the left side of the **start** node.
 7. The attribute value appears in the **Debug** panel (right side, bug icon) and
    also on the node itself below its label. It should look something like this:
 
-<img src="{{ '/assets/node-red/images/debug-output.png' | relative_url }}" alt="Debug output" class="img-responsive">
+<img src="{{ '/assets/node-red/images/debug-output.png' | relative_url }}" alt="Debug output" class="img-responsive img-thumbnail center-block" style="max-width: 600px">
 
    You can click the disclosure triangle to more easily read the output. The
    `payload` in this case is the current value.
 
-<img src="{{ '/assets/node-red/images/debug-pretty-output.png' | relative_url }}" alt="Debug output with JSON expanded" class="img-responsive">
+<img src="{{ '/assets/node-red/images/debug-pretty-output.png' | relative_url }}" alt="Debug output with JSON expanded" class="img-responsive img-thumbnail center-block" style="max-width: 600px">
 
 <details>
 <summary>Or import the example flow</summary>
