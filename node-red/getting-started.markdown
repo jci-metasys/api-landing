@@ -13,7 +13,7 @@ For installation, upgrade, certificate, and security setup instructions see the
 Once installed, open Node-RED and confirm you can see the Metasys nodes in the
 palette on the left under a **Metasys** section. Custom categories appear after
 Node-RED's built-in ones, so you may need to scroll down in the palette to find
-it. You can pin it near the top — see [Pinning the Metasys palette section](#pinning-the-metasys-palette-section) in the appendix below.
+it. You can pin it near the top via the `palette.categories` setting in `settings.js` — see [Pinning the Metasys palette section](#pinning-the-metasys-palette-section) in the appendix below.
 
 <figure>
   <img src="{{ '/assets/node-red/images/palette.png' | relative_url }}" alt="Metasys nodes in the Node-RED palette" title="Metasys nodes in the Node-RED palette" class="img-responsive img-thumbnail" style="max-width: 400px">
@@ -338,16 +338,21 @@ Node-RED for the changes to take effect.
 
 ### Pinning the Metasys palette section
 
-Node-RED's `paletteCategories` setting controls the order of sections in the
-palette. Custom categories like **Metasys** appear after the built-in ones by
-default. To pin it near the top, add it explicitly to the array:
+The `palette.categories` setting controls the order of sections in the palette.
+Custom categories like **Metasys** appear after the built-in ones by default. To
+pin it near the top, add a `palette` block with a `categories` array:
 
 ```javascript
-paletteCategories: ['subflows', 'common', 'Metasys', 'function', 'network', 'sequence', 'parser', 'storage'],
+palette: {
+    categories: ['Metasys', 'subflows', 'common', 'function', 'network', 'sequence', 'parser', 'storage'],
+},
 ```
 
 The name is case-sensitive and must match exactly — `'Metasys'` with a capital M.
 Categories not listed still appear, but are pushed to the bottom.
+
+If `settings.js` already has a `palette:` block (it may be commented out), uncomment
+it and add `categories` inside rather than creating a second `palette:` entry.
 
 ### Enabling persistent caching
 
