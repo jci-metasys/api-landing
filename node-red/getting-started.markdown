@@ -13,8 +13,7 @@ For installation, upgrade, certificate, and security setup instructions see the
 Once installed, open Node-RED and confirm you can see the Metasys nodes in the
 palette on the left under a **Metasys** section. Custom categories appear after
 Node-RED's built-in ones, so you may need to scroll down in the palette to find
-it. You can pin it near the top by adding `Metasys` to the `paletteCategories`
-list in your `settings.js`.
+it. You can pin it near the top — see [Pinning the Metasys palette section](#pinning-the-metasys-palette-section) in the appendix below.
 
 <figure>
   <img src="{{ '/assets/node-red/images/palette.png' | relative_url }}" alt="Metasys nodes in the Node-RED palette" title="Metasys nodes in the Node-RED palette" class="img-responsive img-thumbnail" style="max-width: 400px">
@@ -303,3 +302,64 @@ method.
 | Read returns `null` | Attribute exists but has no value | Normal for some attributes in certain states |
 | Node shows **rate limited** | Too many requests per second | The server config has a **Rate limit** setting — increase it or reduce polling frequency |
 {: .table .table-striped .table-bordered}
+
+---
+
+## Appendix: Configuring settings.js
+
+Two optional behaviors — pinning the Metasys palette section and enabling
+persistent caching for the **lookup object id** node — require editing Node-RED's
+`settings.js` file.
+
+### Finding settings.js
+
+| Platform | Default path |
+| --- | --- |
+| Windows | `%USERPROFILE%\.node-red\settings.js` |
+| Linux / macOS | `~/.node-red/settings.js` |
+{: .table .table-striped .table-bordered}
+
+<div class="callout-block callout-warning">
+  <div class="icon-holder"><i class="fas fa-exclamation-circle"></i></div>
+  <div class="content">
+    <span class="callout-title">Note</span>
+    <p>If Node-RED is running as a system service (e.g., via systemd or as a Windows
+    Service), <code>settings.js</code> may be in a different location depending on which
+    user account the service runs under. Check your service configuration or run
+    <code>node-red --help</code> to confirm the active user data directory.</p>
+  </div>
+</div>
+
+### Editing settings.js
+
+Open the file in any text editor. It exports a JavaScript object — add or update
+the relevant keys inside `module.exports = { ... }`. After saving, restart
+Node-RED for the changes to take effect.
+
+### Pinning the Metasys palette section
+
+Node-RED's `paletteCategories` setting controls the order of sections in the
+palette. Custom categories like **Metasys** appear after the built-in ones by
+default. To pin it near the top, add it explicitly to the array:
+
+```javascript
+paletteCategories: ['subflows', 'common', 'Metasys', 'function', 'network', 'sequence', 'parser', 'storage'],
+```
+
+The name is case-sensitive and must match exactly — `'Metasys'` with a capital M.
+Categories not listed still appear, but are pushed to the bottom.
+
+### Enabling persistent caching
+
+The **lookup object id** node caches object ID lookups in Node-RED's context
+store. By default this is in-memory and is lost on restart. To make it survive
+restarts, set the default context store to `localfilesystem`:
+
+```javascript
+contextStorage: {
+  default: { module: 'localfilesystem' },
+},
+```
+
+With this in place the cache is written to disk automatically — no changes are
+needed in the node's configuration panel.
