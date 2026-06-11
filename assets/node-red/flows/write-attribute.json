@@ -1,0 +1,63 @@
+[
+  {
+    "id": "tab-write-example",
+    "type": "tab",
+    "label": "Write Attribute Example",
+    "disabled": false,
+    "info": "Writes a value to a Metasys object attribute. The inject node is pre-configured with a numeric value — change it to match the type and range of your attribute.\n\nBefore deploying:\n1. Double-click the 'Metasys Server' node and enter your server hostname and credentials.\n2. Double-click 'Write Present Value' and enter your object ID and attribute name.\n3. Double-click 'Set Value' and change the payload to the value you want to write."
+  },
+  {
+    "id": "server-config-write",
+    "type": "metasys server",
+    "name": "Metasys Server",
+    "host": "YOUR-METASYS-HOST",
+    "version": "4"
+  },
+  {
+    "id": "inject-write",
+    "type": "inject",
+    "name": "Set Value",
+    "props": [{ "p": "payload" }],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "72",
+    "payloadType": "num",
+    "z": "tab-write-example",
+    "x": 150,
+    "y": 120,
+    "wires": [["write-attr"]]
+  },
+  {
+    "id": "write-attr",
+    "type": "metasys write attribute",
+    "name": "Write Present Value",
+    "server": "server-config-write",
+    "objectId": "YOUR-OBJECT-ID",
+    "attribute": "presentValue",
+    "useValue": false,
+    "z": "tab-write-example",
+    "x": 360,
+    "y": 120,
+    "wires": [["debug-write"]]
+  },
+  {
+    "id": "debug-write",
+    "type": "debug",
+    "name": "Result",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": true,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "payload",
+    "statusType": "auto",
+    "z": "tab-write-example",
+    "x": 560,
+    "y": 120,
+    "wires": []
+  }
+]

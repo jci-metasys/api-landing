@@ -59,3 +59,16 @@ code {
 ul {
   margin-bottom: 20px;
 }
+
+figure {
+  width: fit-content;
+  margin: 1em auto 1.5em;
+}
+
+figcaption {
+  text-align: center;
+  color: #888;
+  font-size: 0.9em;
+  font-style: italic;
+  margin-top: 0.5em;
+}

@@ -46,6 +46,15 @@
       color: blue
       icon: fa fa-file
 
+- title: "Integrations"
+  intro: "Use Metasys data in automation and IoT platforms"
+  cards:
+    - title: "Node-RED Nodes"
+      intro: "Integrate Metasys with Node-RED flows. Read and write attributes, poll on a schedule, and connect to any service Node-RED supports."
+      color: "red"
+      icon: "fab fa-node-js"
+      url: "node-red/"
+
 - title: "SDK"
   intro: "Client Libraries for the API"
   cards:

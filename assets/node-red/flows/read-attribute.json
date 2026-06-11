@@ -1,0 +1,62 @@
+[
+  {
+    "id": "tab-read-example",
+    "type": "tab",
+    "label": "Read Attribute Example",
+    "disabled": false,
+    "info": "Basic example: read an attribute value from a Metasys object on demand.\n\nBefore deploying:\n1. Double-click the 'Metasys Server' node and enter your server hostname and credentials.\n2. Double-click 'Read Present Value' and enter your object ID and attribute name."
+  },
+  {
+    "id": "server-config",
+    "type": "metasys server",
+    "name": "Metasys Server",
+    "host": "YOUR-METASYS-HOST",
+    "version": "4"
+  },
+  {
+    "id": "inject-read",
+    "type": "inject",
+    "name": "start",
+    "props": [{ "p": "payload" }],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "z": "tab-read-example",
+    "x": 150,
+    "y": 120,
+    "wires": [["read-attr"]]
+  },
+  {
+    "id": "read-attr",
+    "type": "metasys read attribute",
+    "name": "Read Present Value",
+    "server": "server-config",
+    "objectId": "YOUR-OBJECT-ID",
+    "attribute": "presentValue",
+    "z": "tab-read-example",
+    "x": 360,
+    "y": 120,
+    "wires": [["debug-out"]]
+  },
+  {
+    "id": "debug-out",
+    "type": "debug",
+    "name": "output",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": true,
+    "complete": "true",
+    "targetType": "full",
+    "statusVal": "",
+    "statusType": "auto",
+    "z": "tab-read-example",
+    "x": 560,
+    "y": 120,
+    "wires": []
+  }
+]
