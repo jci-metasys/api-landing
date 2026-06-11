@@ -88,7 +88,8 @@ attribute. Copy that value — you'll paste it into the node configuration below
 Once you have an object's ID it never changes, so you can use it directly in
 your node configurations.
 
-### Build it manually
+You can build this flow step by step, or [import a pre-built version](#import-the-example-flow)
+and just fill in your server and object ID.
 
 1. Drag an **inject** node onto the canvas. Double-click it and set **Name** to
    `start`. Leave everything else as-is — it will send a timestamp by default,
@@ -168,22 +169,22 @@ You can click the disclosure triangle to more easily read the output. The
   <figcaption>Debug output with JSON expanded</figcaption>
 </figure>
 
-<details>
-<summary>Or import the example flow</summary>
+### Import the example flow
 
-Download
-[read-attribute.json]({{ '/assets/node-red/flows/read-attribute.json' | relative_url }}),
-then in Node-RED:
+If you'd rather start from a working flow and configure it to point at your
+server and object, download
+[read-attribute.json]({{ '/assets/node-red/flows/read-attribute.json' | relative_url }})
+and import it instead:
 
-1. Open **Menu (☰) → Import**.
+1. In Node-RED, open **Menu (☰) → Import**.
 2. Click **select a file to import** and choose the downloaded file.
-3. Click **Import**.
-4. Double-click the **read attribute** node, click the pencil icon next to
-   **Server**, and enter your host and credentials.
-5. Enter your object ID in the **Object ID** field.
-6. Click **Deploy**.
-
-</details>
+3. Click **Import**. The inject, read attribute, and debug nodes appear on the
+   canvas, already wired together.
+4. Double-click the **read attribute** node. Click the pencil icon next to
+   **Server** and enter your host, username, and password. Click **Add**.
+5. Paste your object ID into the **Object ID** field. Click **Done**.
+6. Click **Deploy** (red button, top right).
+7. Click the button on the **start** node and check the Debug panel for output.
 
 ---
 
